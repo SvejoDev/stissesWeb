@@ -7,10 +7,13 @@
 	import { onMount } from 'svelte';
 	import { lang } from '$lib/lang';
 
-	function switchLanguage(lang: AvailableLanguageTag) {
-		const canonicalPath = i18n.route($page.url.pathname);
-		const localizedPath = i18n.resolveRoute(canonicalPath, lang);
-		goto(localizedPath);
+	function switchLanguage(newLang: AvailableLanguageTag) {
+		// tar bort alla språkprefix från den nuvarande sökvägen
+		const pathWithoutLang = i18n.route($page.url.pathname);
+		// skapar en ny sökväg med det nya språket
+		const newPath = i18n.resolveRoute(pathWithoutLang, newLang);
+		// navigerar till den nya sökvägen
+		goto(newPath, { replaceState: true });
 	}
 
 	let isAboutUsOpen = false;
@@ -49,7 +52,7 @@
 	const languages = [
 		{ code: 'sv', name: 'Svenska', flag: '/flags/sv.svg' },
 		{ code: 'en', name: 'English', flag: '/flags/en.svg' },
-		{ code: 'dk', name: 'Dansk', flag: '/flags/dk.svg' },
+		{ code: 'da', name: 'Dansk', flag: '/flags/da.svg' },
 		{ code: 'de', name: 'Deutsch', flag: '/flags/de.svg' }
 	];
 </script>

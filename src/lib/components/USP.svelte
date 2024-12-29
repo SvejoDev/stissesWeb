@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	import * as m from '$lib/paraglide/messages';
 
 	let isVisible = false;
 
@@ -24,23 +25,20 @@
 
 	const usps = [
 		{
-			title: 'Begeistrade Kunder',
-			description:
-				'För oss räcker det inte med nöjda kunder - vi strävar efter att överträffa förväntningar och skapa upplevelser som får dig att vilja komma tillbaka, om och om igen.',
+			title: m.fuzzy_active_butterfly_sing(),
+			description: m.equal_large_beetle_tap(),
 			image: '/images/happy-customers.jpg',
 			alt: 'Glada kanotister på sjön'
 		},
 		{
-			title: 'Barn & Ungas Hälsa',
-			description:
-				'Vi tror på kraften i utomhusaktiviteter för hela familjen. Därför paddlar alla barn under 10 år gratis hos oss - för en aktiv och hälsosam framtid.',
+			title: m.plain_any_zebra_bloom(),
+			description: m.chunky_true_reindeer_jest(),
 			image: '/images/family-kayaking.jpg',
 			alt: 'Familj som paddlar tillsammans'
 		},
 		{
-			title: 'Hållbar Turism',
-			description:
-				'Vi tar ansvar för framtiden genom social, ekologisk och ekonomisk hållbarhet. Från miljövänlig rengöring till eldrivna transporter - varje detalj räknas.',
+			title: m.quick_bright_cat_support(),
+			description: m.caring_brave_warbler_yell(),
 			image: '/images/sustainable-nature.jpg',
 			alt: 'Vacker naturvy med solnedgång över sjön'
 		}
@@ -52,9 +50,11 @@
 		<!-- Huvudrubrik -->
 		{#if isVisible}
 			<div in:fade={{ duration: 800 }} class="mb-20 text-center">
-				<h2 class="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">Det här gör oss unika</h2>
+				<h2 class="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">
+					{m.same_helpful_monkey_jolt()}
+				</h2>
 				<p class="mx-auto max-w-2xl text-lg text-gray-600">
-					Upptäck varför våra kunder väljer att uppleva naturen med oss
+					{m.suave_good_hound_borrow()}
 				</p>
 			</div>
 

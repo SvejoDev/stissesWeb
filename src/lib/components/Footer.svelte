@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
+	import * as m from '$lib/paraglide/messages';
 
 	const socialLinks = [
 		{
@@ -64,7 +65,7 @@
 		<div class="grid gap-8 lg:grid-cols-4">
 			<!-- Företagsinfo -->
 			<div class="space-y-2 text-gray-400">
-				<h3 class="mb-6 text-lg font-semibold text-white">Kontakt</h3>
+				<h3 class="mb-6 text-lg font-semibold text-white">{m.busy_sweet_swallow_launch()}</h3>
 				{#each companyInfo as info}
 					{#if info.url}
 						<a
@@ -87,19 +88,27 @@
 
 			<!-- Snabblänkar -->
 			<div>
-				<h3 class="mb-6 text-lg font-semibold">Aktiviteter</h3>
+				<h3 class="mb-6 text-lg font-semibold">{m.funny_tidy_dingo_gasp()}</h3>
 				<ul class="space-y-4">
 					<li>
-						<a href="/paddla" class="text-gray-400 transition-colors hover:text-white">Paddling</a>
+						<a href="/paddla" class="text-gray-400 transition-colors hover:text-white"
+							>{m.brief_steep_cougar_laugh()}</a
+						>
 					</li>
 					<li>
-						<a href="/fiska" class="text-gray-400 transition-colors hover:text-white">Fiske</a>
+						<a href="/fiska" class="text-gray-400 transition-colors hover:text-white"
+							>{m.sour_careful_pug_nail()}</a
+						>
 					</li>
 					<li>
-						<a href="/cykla" class="text-gray-400 transition-colors hover:text-white">Cykling</a>
+						<a href="/cykla" class="text-gray-400 transition-colors hover:text-white"
+							>{m.heroic_tough_bear_mop()}</a
+						>
 					</li>
 					<li>
-						<a href="/vandra" class="text-gray-400 transition-colors hover:text-white">Vandring</a>
+						<a href="/vandra" class="text-gray-400 transition-colors hover:text-white"
+							>{m.grand_cool_jan_persist()}</a
+						>
 					</li>
 				</ul>
 			</div>
@@ -107,7 +116,7 @@
 			<!-- Sociala medier och recensioner -->
 			<div>
 				<!-- Sociala medier -->
-				<p class="mb-4 text-sm text-gray-400">Följ oss här:</p>
+				<p class="mb-4 text-sm text-gray-400">{m.polite_cozy_quail_gleam()}</p>
 				<div class="mb-6 flex space-x-4">
 					{#each socialLinks as social}
 						<a
@@ -122,7 +131,7 @@
 				</div>
 
 				<!-- Recensionsplattformar -->
-				<p class="mb-4 text-sm text-gray-400">Lämna en recension:</p>
+				<p class="mb-4 text-sm text-gray-400">{m.quick_fine_eel_exhale()}</p>
 				<div class="flex space-x-4">
 					{#each reviewPlatforms as platform}
 						<a

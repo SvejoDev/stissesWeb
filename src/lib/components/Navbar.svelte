@@ -34,20 +34,20 @@
 	});
 
 	const navItems = [
-		{ href: '/paddla', label: m.nav_paddle },
-		{ href: '/fiska', label: m.nav_fish },
-		{ href: '/cykla', label: m.nav_bike },
-		{ href: '/vandra', label: m.nav_hike }
+		{ href: '/paddla', label: m.polite_legal_panther_fold() },
+		{ href: '/fiska', label: m.novel_male_wasp_pinch() },
+		{ href: '/cykla', label: m.spare_civil_jay_hush() },
+		{ href: '/vandra', label: m.wacky_mad_raven_gulp() }
 	];
 
 	const aboutUsItems = [
-		{ href: '/om-oss', label: m.nav_about_main },
-		{ href: '/viktigt-for-oss', label: m.nav_about_important },
-		{ href: '/vart-team', label: m.nav_about_team },
-		{ href: '/arbeta-hos-oss', label: m.nav_about_work },
-		{ href: '/praktik', label: m.nav_about_internship },
-		{ href: '/presentkort', label: m.alive_orange_iguana_seek },
-		{ href: '/partners', label: m.nav_about_partners }
+		{ href: '/om-oss', label: m.sleek_day_martin_reside() },
+		{ href: '/viktigt-for-oss', label: m.awful_witty_owl_lock() },
+		{ href: '/vart-team', label: m.same_bad_warbler_boil() },
+		{ href: '/arbeta-hos-oss', label: m.sound_grassy_guppy_clip() },
+		{ href: '/praktik', label: m.key_noble_meerkat_radiate() },
+		{ href: '/presentkort', label: m.round_simple_skunk_hunt() },
+		{ href: '/partners', label: m.weary_keen_dingo_amuse() }
 	];
 
 	const languages = [
@@ -72,7 +72,7 @@
 								href={item.href}
 								class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900"
 							>
-								{item.label()}
+								{item.label}
 							</a>
 						{/each}
 						<div class="relative" bind:this={aboutUsRef}>
@@ -80,7 +80,7 @@
 								on:click|stopPropagation={() => (isAboutUsOpen = !isAboutUsOpen)}
 								class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900 focus:outline-none"
 							>
-								{m.nav_about()}
+								{m.sleek_day_martin_reside()}
 								<svg
 									class="ml-1 inline-block h-4 w-4 transition-transform duration-200 ease-in-out"
 									class:rotate-180={isAboutUsOpen}
@@ -103,7 +103,7 @@
 										<a
 											href={item.href}
 											class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-900"
-											>{item.label()}</a
+											>{item.label}</a
 										>
 									{/each}
 								</div>
@@ -113,7 +113,7 @@
 							href="/kontakt"
 							class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900"
 						>
-							{m.nav_contact()}
+							{m.ago_careful_alpaca_intend()}
 						</a>
 					</div>
 				</div>
@@ -163,14 +163,14 @@
 					<a
 						href={item.href}
 						class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-green-100 hover:text-green-900"
-						>{item.label()}</a
+						>{item.label}</a
 					>
 				{/each}
 				<button
 					on:click|stopPropagation={() => (isAboutUsOpen = !isAboutUsOpen)}
 					class="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-base font-medium text-gray-700 hover:bg-green-100 hover:text-green-900"
 				>
-					<span>{m.nav_about()}</span>
+					<span>{m.sleek_day_martin_reside()}</span>
 					<svg
 						class="h-5 w-5 transition-transform duration-200 ease-in-out"
 						class:rotate-180={isAboutUsOpen}
@@ -192,7 +192,7 @@
 								href={item.href}
 								class="block rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors duration-150 hover:bg-green-100 hover:text-green-900"
 							>
-								{item.label()}
+								{item.label}
 							</a>
 						{/each}
 					</div>
@@ -200,7 +200,7 @@
 				<a
 					href="/kontakt"
 					class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-green-100 hover:text-green-900"
-					>{m.nav_contact()}</a
+					>{m.busy_sweet_swallow_launch()}</a
 				>
 			</div>
 			<div class="border-t border-gray-200 pb-3 pt-4">

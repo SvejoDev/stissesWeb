@@ -13,22 +13,22 @@
 
 	const activities = [
 		{
-			name: m.nav_paddle(),
+			name: m.polite_legal_panther_fold(),
 			href: '/paddla',
 			icon: `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />`
 		},
 		{
-			name: m.nav_fish(),
+			name: m.novel_male_wasp_pinch(),
 			href: '/fiska',
 			icon: `<path d="M12 20.94c1.5 0 2.75 1.06 4 0l8-4c-1.5-1.5-3-3-8-3s-6.5 1.5-8 3l8 4c1.25 1.06 2.5 0 4 0z" /><path d="M20 14c-3-2-6-3-8-3s-5 1-8 3" />`
 		},
 		{
-			name: m.nav_bike(),
+			name: m.spare_civil_jay_hush(),
 			href: '/cykla',
 			icon: `<circle cx="12" cy="12" r="9" /><path d="M14 15a3 3 0 1 0 6 0 3 3 0 1 0-6 0z M4 15a3 3 0 1 0 6 0 3 3 0 1 0-6 0z" />`
 		},
 		{
-			name: m.nav_hike(),
+			name: m.wacky_mad_raven_gulp(),
 			href: '/vandra',
 			icon: `<path d="M13 4v16M7 4v16M17 4v16" /><path d="M3 8h18M3 16h18" />`
 		}
@@ -57,7 +57,7 @@
 				in:fly={{ y: 50, duration: 1000 }}
 				class="mb-6 text-center font-sans text-5xl font-extrabold leading-normal tracking-tight sm:text-6xl md:text-7xl"
 			>
-				<span class="block py-1">Upplev</span>
+				<span class="block py-1">{m.due_simple_shad_read()}</span>
 				<span
 					class="mt-2 block bg-gradient-to-r from-green-300 to-blue-300 bg-clip-text py-1 font-extrabold text-transparent"
 				>

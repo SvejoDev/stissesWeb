@@ -35,7 +35,7 @@
 	];
 </script>
 
-<div class="relative h-screen w-full overflow-hidden">
+<div class="relative h-full w-full overflow-hidden">
 	<!-- bild bakgrund -->
 	<div class="absolute inset-0 z-0">
 		<img
@@ -49,64 +49,21 @@
 
 	<!-- Hero content -->
 	{#if isVideoLoaded}
-		<div class="relative z-10 flex h-full flex-col items-center justify-center px-4 text-white">
+		<div
+			class="relative z-10 flex h-full flex-col items-center justify-center px-4 pt-16 text-white"
+		>
 			<!-- Huvudrubrik -->
 			<h1
 				in:fly={{ y: 50, duration: 1000 }}
-				class="mb-6 text-center font-serif text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl"
+				class="mb-6 text-center font-sans text-5xl font-extrabold leading-normal tracking-tight sm:text-6xl md:text-7xl"
 			>
-				<span class="block">Upplev</span>
+				<span class="block py-1">Upplev</span>
 				<span
-					class="mt-2 block bg-gradient-to-r from-green-300 to-blue-300 bg-clip-text text-transparent"
+					class="mt-2 block bg-gradient-to-r from-green-300 to-blue-300 bg-clip-text py-1 font-extrabold text-transparent"
 				>
 					Ängelholm
 				</span>
 			</h1>
-
-			<!-- Underrubrik -->
-			<p
-				in:fly={{ y: 50, duration: 1000, delay: 200 }}
-				class="mb-12 max-w-xl text-center text-lg text-gray-200 sm:text-xl"
-			>
-				Upptäck naturens skönhet och äventyr i hjärtat av Skåne
-			</p>
-
-			<!-- Aktivitetsknappar -->
-			<div
-				in:fly={{ y: 50, duration: 1000, delay: 400 }}
-				class="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6"
-			>
-				{#each activities as activity}
-					<a
-						href={activity.href}
-						class="group relative overflow-hidden rounded-lg bg-white/10 px-6 py-4 backdrop-blur-sm transition-all
-        duration-300 hover:bg-white/20 hover:shadow-lg hover:shadow-white/5"
-					>
-						<!-- Ikon -->
-						<svg
-							class="mx-auto mb-2 h-8 w-8 text-white transition-transform duration-300 group-hover:scale-110"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							{@html activity.icon}
-						</svg>
-
-						<!-- Text -->
-						<span class="block text-center text-sm font-medium tracking-wide sm:text-base">
-							{activity.name}
-						</span>
-
-						<!-- Hover effect -->
-						<div
-							class="absolute inset-0 -z-10 bg-gradient-to-r from-green-400/10 to-blue-400/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-						></div>
-					</a>
-				{/each}
-			</div>
 
 			<!-- Scroll indicator -->
 			<div
@@ -133,7 +90,7 @@
 
 <style>
 	/* Optional: Lägg till custom fonts om det behövs */
-	@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 	/* Animations för scroll indicator */
 	@keyframes bounce {

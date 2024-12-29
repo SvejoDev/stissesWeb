@@ -9,5 +9,8 @@ export default defineConfig({
 			project: './project.inlang',
 			outdir: './src/lib/paraglide'
 		})
-	]
+	],
+	optimizeDeps: {
+		exclude: ['@splidejs/svelte-splide', '@splidejs/splide']
+	}
 });

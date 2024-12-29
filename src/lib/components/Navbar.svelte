@@ -46,7 +46,7 @@
 		{ href: '/vart-team', label: m.nav_about_team },
 		{ href: '/arbeta-hos-oss', label: m.nav_about_work },
 		{ href: '/praktik', label: m.nav_about_internship },
-		{ href: '/presentkort', label: m.alive_orange_iguana_seek() },
+		{ href: '/presentkort', label: m.alive_orange_iguana_seek },
 		{ href: '/partners', label: m.nav_about_partners }
 	];
 
@@ -58,7 +58,7 @@
 	];
 </script>
 
-<nav class="bg-green-50 shadow-md">
+<nav class="relative z-50 bg-green-50 shadow-md">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="flex h-16 items-center justify-between">
 			<div class="flex items-center">

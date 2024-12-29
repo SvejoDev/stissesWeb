@@ -57,7 +57,7 @@
 				in:fly={{ y: 50, duration: 1000 }}
 				class="mb-6 text-center font-sans text-5xl font-extrabold leading-normal tracking-tight sm:text-6xl md:text-7xl"
 			>
-				<span class="block py-1">Upplev</span>
+				<span class="block py-1">{m.due_simple_shad_read()}</span>
 				<span
 					class="mt-2 block bg-gradient-to-r from-green-300 to-blue-300 bg-clip-text py-1 font-extrabold text-transparent"
 				>

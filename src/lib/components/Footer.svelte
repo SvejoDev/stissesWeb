@@ -88,19 +88,27 @@
 
 			<!-- Snabblänkar -->
 			<div>
-				<h3 class="mb-6 text-lg font-semibold">Aktiviteter</h3>
+				<h3 class="mb-6 text-lg font-semibold">{m.funny_tidy_dingo_gasp()}</h3>
 				<ul class="space-y-4">
 					<li>
-						<a href="/paddla" class="text-gray-400 transition-colors hover:text-white">Paddling</a>
+						<a href="/paddla" class="text-gray-400 transition-colors hover:text-white"
+							>{m.brief_steep_cougar_laugh()}</a
+						>
 					</li>
 					<li>
-						<a href="/fiska" class="text-gray-400 transition-colors hover:text-white">Fiske</a>
+						<a href="/fiska" class="text-gray-400 transition-colors hover:text-white"
+							>{m.sour_careful_pug_nail()}</a
+						>
 					</li>
 					<li>
-						<a href="/cykla" class="text-gray-400 transition-colors hover:text-white">Cykling</a>
+						<a href="/cykla" class="text-gray-400 transition-colors hover:text-white"
+							>{m.heroic_tough_bear_mop()}</a
+						>
 					</li>
 					<li>
-						<a href="/vandra" class="text-gray-400 transition-colors hover:text-white">Vandring</a>
+						<a href="/vandra" class="text-gray-400 transition-colors hover:text-white"
+							>{m.grand_cool_jan_persist()}</a
+						>
 					</li>
 				</ul>
 			</div>

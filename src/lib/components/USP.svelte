@@ -31,7 +31,7 @@
 			alt: 'Glada kanotister på sjön'
 		},
 		{
-			title: m.bland_mellow_mule_edit(),
+			title: m.plain_any_zebra_bloom(),
 			description: m.chunky_true_reindeer_jest(),
 			image: '/images/family-kayaking.jpg',
 			alt: 'Familj som paddlar tillsammans'

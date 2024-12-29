@@ -1,16 +1,1 @@
-{
-	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"nav_paddle": "Paddla",
-	"nav_fish": "Fiska",
-	"nav_bike": "Cykla",
-	"nav_hike": "Vandra",
-	"nav_about": "Om oss",
-	"nav_about_main": "Om oss",
-	"nav_about_important": "Viktigt för oss",
-	"nav_about_team": "Vårt team",
-	"nav_about_work": "Arbeta med oss",
-	"nav_about_internship": "Praktisera hos oss",
-	"nav_about_partners": "Våra partners",
-	"nav_contact": "Kontakt",
-	"alive_orange_iguana_seek": "Presentkort"
-}
+{"$schema":"https://inlang.com/schema/inlang-message-format","ago_careful_alpaca_intend":"Kontakt","mean_flat_tadpole_relish":"Aktiviteter","gross_watery_sawfish_race":"Paddling","flaky_misty_polecat_achieve":"Fiske","less_zippy_gazelle_forgive":"Cykling","busy_jolly_hornet_fear":"Vandring","polite_cozy_quail_gleam":"Följ oss här:","quick_fine_eel_exhale":"Lämna en recension:","busy_sweet_swallow_launch":"Kontakt"}

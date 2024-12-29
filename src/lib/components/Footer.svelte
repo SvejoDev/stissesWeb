@@ -64,7 +64,7 @@
 		<div class="grid gap-8 lg:grid-cols-4">
 			<!-- Företagsinfo -->
 			<div class="space-y-2 text-gray-400">
-				<h3 class="mb-6 text-lg font-semibold text-white">Kontakt</h3>
+				<h3 class="mb-6 text-lg font-semibold text-white">{m.busy_sweet_swallow_launch()}</h3>
 				{#each companyInfo as info}
 					{#if info.url}
 						<a

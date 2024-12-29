@@ -1,16 +1,4 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"nav_paddle": "Padle",
-	"nav_fish": "Fisk",
-	"nav_bike": "Cyklus",
-	"nav_hike": "Vandretur",
-	"nav_about": "Om os",
-	"nav_about_main": "Om os",
-	"nav_about_important": "Vigtigt for os",
-	"nav_about_team": "Vores team",
-	"nav_about_work": "Arbejd hos os",
-	"nav_about_internship": "Øv med os",
-	"nav_about_partners": "Vores partnere",
-	"nav_contact": "Kontakte",
-	"alive_orange_iguana_seek": "Gavekort"
+	"gross_watery_sawfish_race": "Padling"
 }

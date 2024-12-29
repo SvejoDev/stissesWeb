@@ -1,27 +1,28 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	import * as m from '$lib/paraglide/messages';
 
 	let isVisible = false;
 
 	const reviews = [
 		{
 			name: 'Stephan Dobberkau',
-			text: 'Perfekt, snyggt och okomplicerat. Bokade online och fick en fantastisk kanadensare för hela familjen. Det fanns även paddlar för de minsta. Vi hade väldigt roligt och kan varmt rekommendera turnén och hyrfolket.',
+			text: m.less_major_carp_ripple(),
 			rating: 5,
 			image: '/images/stephan.png',
 			nationality: 'DE'
 		},
 		{
 			name: 'Hampus Edström',
-			text: 'Mycket trevlig kontakt med personalen, ordning och reda, fick tips på sträckor och upplägg. Hit återkommer vi!',
+			text: m.awful_kind_shark_slide(),
 			rating: 5,
 			image: '/images/hampus.png',
 			nationality: 'SE'
 		},
 		{
 			name: 'Mariella Lindemann',
-			text: 'Vilket äventyr! Kanotturen var fantastisk för att uppleva svensk natur, allt var väl förberett, kommunikationen var bra och super trevlig personal. Tack :-)',
+			text: m.last_weird_duck_pout(),
 			rating: 5,
 			image: '/images/marielle.png',
 			nationality: 'GB'
@@ -58,7 +59,7 @@
 		{#if isVisible}
 			<!-- Huvudrubrik -->
 			<div in:fade={{ duration: 800 }} class="mb-16 text-center">
-				<h2 class="mb-4 text-4xl font-bold text-gray-900">Vad våra kunder säger</h2>
+				<h2 class="mb-4 text-4xl font-bold text-gray-900">{m.maroon_lime_ocelot_blend()}</h2>
 				<div class="mx-auto h-1 w-24 rounded bg-green-500"></div>
 			</div>
 

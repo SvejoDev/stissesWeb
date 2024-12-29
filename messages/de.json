@@ -1,4 +1,16 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"nav_paddle": "Paddeln",
+	"nav_fish": "Fisch",
+	"nav_bike": "Zyklus",
+	"nav_hike": "Wanderung",
+	"nav_about": "Über uns",
+	"nav_about_main": "Über uns",
+	"nav_about_important": "Wichtig für uns",
+	"nav_about_team": "Unser Team",
+	"nav_about_work": "Arbeiten Sie mit uns",
+	"nav_about_internship": "Üben Sie mit uns",
+	"nav_about_partners": "Unsere Partner",
+	"nav_contact": "Kontakt",
 	"hello_world": "Hello, {name} from de!"
 }

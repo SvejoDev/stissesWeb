@@ -50,7 +50,7 @@
 <section class="testimonials-section relative overflow-hidden bg-gray-50 py-24">
 	<!-- Naturlig bakgrundsbild med overlay -->
 	<div class="absolute inset-0 z-0">
-		<img src="/images/nature-bg.jpg" alt="" class="h-full w-full object-cover opacity-10" />
+		<img src="/images/nature-bg.jpg" alt="" class="h-full w-full object-cover opacity-40" />
 		<div class="absolute inset-0 bg-gradient-to-r from-green-50/50 to-blue-50/50"></div>
 	</div>
 

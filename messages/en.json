@@ -1,16 +1,1 @@
-{
-	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"nav_paddle": "Paddle",
-	"nav_fish": "Fish",
-	"nav_bike": "Cycle",
-	"nav_hike": "Hike",
-	"nav_about": "About us",
-	"nav_about_main": "About us",
-	"nav_about_important": "Important to us",
-	"nav_about_team": "Our team",
-	"nav_about_work": "Work with us",
-	"nav_about_internship": "Practice with us",
-	"nav_about_partners": "Our partners",
-	"nav_contact": "Contact",
-	"hello_world": "Hello, {name} from en!"
-}
+{"$schema":"https://inlang.com/schema/inlang-message-format","nav_paddle":"Paddle","nav_fish":"Fish","nav_bike":"Cycle","nav_hike":"Hike","nav_about":"About us","nav_about_main":"About us","nav_about_important":"Important to us","nav_about_team":"Our team","nav_about_work":"Work with us","nav_about_internship":"Practice with us","nav_about_partners":"Our partners","nav_contact":"Contact","hello_world":"Hello, {name} from en!"}

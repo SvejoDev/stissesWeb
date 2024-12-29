@@ -46,6 +46,7 @@
 		{ href: '/vart-team', label: m.nav_about_team },
 		{ href: '/arbeta-hos-oss', label: m.nav_about_work },
 		{ href: '/praktik', label: m.nav_about_internship },
+		{ href: '/presentkort', label: m.alive_orange_iguana_seek() },
 		{ href: '/partners', label: m.nav_about_partners }
 	];
 

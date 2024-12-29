@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
+	import * as m from '$lib/paraglide/messages';
 
 	const socialLinks = [
 		{
@@ -107,7 +108,7 @@
 			<!-- Sociala medier och recensioner -->
 			<div>
 				<!-- Sociala medier -->
-				<p class="mb-4 text-sm text-gray-400">Följ oss här:</p>
+				<p class="mb-4 text-sm text-gray-400">{m.polite_cozy_quail_gleam()}</p>
 				<div class="mb-6 flex space-x-4">
 					{#each socialLinks as social}
 						<a
@@ -122,7 +123,7 @@
 				</div>
 
 				<!-- Recensionsplattformar -->
-				<p class="mb-4 text-sm text-gray-400">Lämna en recension:</p>
+				<p class="mb-4 text-sm text-gray-400">{m.quick_fine_eel_exhale()}</p>
 				<div class="flex space-x-4">
 					{#each reviewPlatforms as platform}
 						<a

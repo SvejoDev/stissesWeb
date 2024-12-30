@@ -5,7 +5,6 @@
 	import type { AvailableLanguageTag } from '$lib/paraglide/runtime';
 	import * as m from '$lib/paraglide/messages';
 	import { onMount } from 'svelte';
-	import { lang } from '$lib/lang';
 
 	function switchLanguage(newLang: AvailableLanguageTag) {
 		// tar bort alla språkprefix från den nuvarande sökvägen

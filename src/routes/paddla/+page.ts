@@ -1,8 +1,25 @@
-export const load = () => {
+// src/routes/paddla/+page.ts
+import type { PageLoad } from './$types';
+import { activities } from '$lib/data/activities';
+
+export const load: PageLoad = ({ url }) => {
+    const experience = url.searchParams.get('experience');
+    const paddlingData = activities.paddla;
+
+    const selectedExperience = experience
+        ? paddlingData.experiences.find(
+            exp => exp.title.toLowerCase().replace(/\s+/g, '-') === experience
+        )
+        : null;
+
     return {
         metadata: {
-            title: 'Paddla i Ängelholm | Stisses Sport & Fritid',
-            description: 'Upptäck Ängelholms vackra vattendrag genom paddling. Vi erbjuder olika paddlingsupplevelser för alla nivåer.',
+            title: selectedExperience
+                ? `${selectedExperience.title} | Stisses Sport & Fritid`
+                : 'Paddling i Ängelholm | Stisses Sport & Fritid',
+            description: selectedExperience
+                ? selectedExperience.description
+                : paddlingData.description
         }
     };
 };

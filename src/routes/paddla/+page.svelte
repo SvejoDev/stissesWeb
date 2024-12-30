@@ -1,5 +1,13 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import ActivityLayout from '$lib/components/ActivityLayout.svelte';
+	import { activities } from '$lib/data/activities';
 
-	let { data }: { data: PageData } = $props();
+	const paddlingData = activities.paddla;
 </script>
+
+<ActivityLayout
+	title={paddlingData.title}
+	description={paddlingData.description}
+	heroImage={paddlingData.heroImage}
+	experiences={paddlingData.experiences}
+/>

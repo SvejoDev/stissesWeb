@@ -1,5 +1,4 @@
 <script lang="ts">
-	import ActivityLayout from '$lib/components/ActivityLayout.svelte';
 	import ExperienceCard from '$lib/components/experience/ExperienceCard.svelte';
 	import ExperienceDetails from '$lib/components/experience/ExperienceDetails.svelte';
 	import { activities } from '$lib/data/activities';
@@ -14,6 +13,15 @@
 				(exp) => exp.title.toLowerCase().replace(/\s+/g, '-') === selectedExperience
 			)
 		: null;
+
+	// lägg till en variabel för att hålla koll på aktiv filter
+	let activeFilter: 'all' | 'guided' | 'corporate' | 'educational' = 'all';
+
+	// filtrera upplevelserna baserat på vald filter
+	$: filteredExperiences = paddlingData.experiences.filter((exp) => {
+		if (activeFilter === 'all') return true;
+		return exp.experienceType === activeFilter;
+	});
 </script>
 
 {#if currentExperience}
@@ -66,42 +74,42 @@
 			<!-- Filter Options (om det behövs) -->
 			<div class="mb-8 flex flex-wrap gap-4">
 				<button
-					class="rounded-full bg-blue-100 px-4 py-2 text-blue-800 hover:bg-blue-200"
-					on:click={() => {
-						/* Filter logic */
-					}}
+					class="rounded-full px-4 py-2 transition-colors {activeFilter === 'all'
+						? 'bg-blue-100 text-blue-800 hover:bg-blue-200'
+						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
+					on:click={() => (activeFilter = 'all')}
 				>
 					Alla upplevelser
 				</button>
 				<button
-					class="rounded-full bg-gray-100 px-4 py-2 text-gray-800 hover:bg-gray-200"
-					on:click={() => {
-						/* Filter logic */
-					}}
+					class="rounded-full px-4 py-2 transition-colors {activeFilter === 'guided'
+						? 'bg-blue-100 text-blue-800 hover:bg-blue-200'
+						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
+					on:click={() => (activeFilter = 'guided')}
 				>
 					Guidade turer
 				</button>
 				<button
-					class="rounded-full bg-gray-100 px-4 py-2 text-gray-800 hover:bg-gray-200"
-					on:click={() => {
-						/* Filter logic */
-					}}
+					class="rounded-full px-4 py-2 transition-colors {activeFilter === 'corporate'
+						? 'bg-blue-100 text-blue-800 hover:bg-blue-200'
+						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
+					on:click={() => (activeFilter = 'corporate')}
 				>
 					Företag
 				</button>
 				<button
-					class="rounded-full bg-gray-100 px-4 py-2 text-gray-800 hover:bg-gray-200"
-					on:click={() => {
-						/* Filter logic */
-					}}
+					class="rounded-full px-4 py-2 transition-colors {activeFilter === 'educational'
+						? 'bg-blue-100 text-blue-800 hover:bg-blue-200'
+						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
+					on:click={() => (activeFilter = 'educational')}
 				>
 					Skolor & föreningar
 				</button>
 			</div>
 
-			<!-- Experiences Grid -->
+			<!-- Uppdatera grid-sektionen att använda de filtrerade upplevelserna -->
 			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-				{#each paddlingData.experiences as experience}
+				{#each filteredExperiences as experience}
 					<ExperienceCard {experience} />
 				{/each}
 			</div>

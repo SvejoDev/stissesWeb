@@ -8,7 +8,7 @@ export const load: PageLoad = ({ url }) => {
 
     const selectedExperience = experience
         ? paddlingData.experiences.find(
-            exp => exp.title.toLowerCase().replace(/\s+/g, '-') === experience
+            exp => (typeof exp.title === 'function' ? exp.title() : exp.title).toLowerCase().replace(/\s+/g, '-') === experience
         )
         : null;
 

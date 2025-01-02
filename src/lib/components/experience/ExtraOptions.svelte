@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Experience } from '$lib/types';
 	import { Badge } from '$lib/components/ui/badge';
+	import * as m from '$lib/paraglide/messages';
 
 	export let experience: Experience;
 </script>
@@ -8,7 +9,7 @@
 <div class="mb-8 space-y-8">
 	{#if experience.extras?.food}
 		<div>
-			<h2 class="mb-4 text-xl font-semibold">Mat & dryck</h2>
+			<h2 class="mb-4 text-xl font-semibold">{m.smart_tough_beetle_bump()}</h2>
 			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 				{#each experience.extras.food as option}
 					<div class="rounded-lg bg-white p-4 shadow">
@@ -28,7 +29,7 @@
 			<h2 class="mb-4 text-xl font-semibold">Teambuilding</h2>
 			<div class="rounded-lg bg-white p-6 shadow">
 				<div class="mb-4 flex items-start justify-between">
-					<h3 class="font-semibold">Teambuilding-aktiviteter</h3>
+					<h3 class="font-semibold">{m.civil_silly_hare_offer()}</h3>
 					<Badge variant="secondary">{experience.extras.teambuilding.price} kr/person</Badge>
 				</div>
 				<p class="text-gray-600">{experience.extras.teambuilding.description}</p>
@@ -38,7 +39,7 @@
 
 	{#if experience.recommendations}
 		<div>
-			<h2 class="mb-4 text-xl font-semibold">Rekommendationer</h2>
+			<h2 class="mb-4 text-xl font-semibold">{m.moving_zesty_bullock_pause()}</h2>
 			<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
 				{#if experience.recommendations.clothing}
 					<div>

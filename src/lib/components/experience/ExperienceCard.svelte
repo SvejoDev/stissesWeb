@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Experience } from '$lib/types';
 	import { Badge } from '$lib/components/ui/badge';
+	import * as m from '$lib/paraglide/messages';
 
 	export let experience: Experience;
 
@@ -76,7 +77,7 @@
 				href={`?experience=${(typeof experience.title === 'function' ? experience.title() : experience.title).toLowerCase().replace(/\s+/g, '-')}`}
 				class="rounded bg-blue-600 px-4 py-2 text-white transition-colors duration-300 hover:bg-blue-700"
 			>
-				Läs mer
+				{m.such_awake_shad_inspire()}
 			</a>
 		</div>
 	</div>

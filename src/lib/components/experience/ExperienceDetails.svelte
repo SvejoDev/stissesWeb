@@ -30,15 +30,15 @@
 				<p class="mt-1 font-semibold">{experience.duration}</p>
 			</div>
 			<div>
-				<h3 class="text-sm font-medium text-gray-500">Start</h3>
+				<h3 class="text-sm font-medium text-gray-500">{m.drab_equal_eel_honor()}</h3>
 				<p class="mt-1 font-semibold">{experience.startLocation}</p>
 			</div>
 			<div>
-				<h3 class="text-sm font-medium text-gray-500">Mål</h3>
+				<h3 class="text-sm font-medium text-gray-500">{m.alive_misty_tortoise_dazzle()}</h3>
 				<p class="mt-1 font-semibold">{experience.endLocation}</p>
 			</div>
 			<div>
-				<h3 class="text-sm font-medium text-gray-500">Svårighetsgrad</h3>
+				<h3 class="text-sm font-medium text-gray-500">{m.spare_every_nuthatch_boil()}</h3>
 				<Badge class="mt-1">
 					{experience.difficulty === 'easy'
 						? 'Lätt'
@@ -56,7 +56,7 @@
 
 		<!-- Included Items -->
 		<div class="mb-8">
-			<h2 class="mb-4 text-xl font-semibold">Detta ingår</h2>
+			<h2 class="mb-4 text-xl font-semibold">{m.minor_orange_samuel_trim()}</h2>
 			<ul class="grid grid-cols-1 gap-2 md:grid-cols-2">
 				{#each experience.includedItems as item}
 					<li class="flex items-center gap-2">
@@ -99,7 +99,7 @@
 				href="/boka"
 				class="block w-full rounded-lg bg-blue-600 px-6 py-3 text-center text-white transition-colors duration-300 hover:bg-blue-700"
 			>
-				Boka denna upplevelse
+				{m.this_drab_lamb_adore()}
 			</a>
 		</div>
 	</div>

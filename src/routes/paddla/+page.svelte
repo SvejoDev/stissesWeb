@@ -3,6 +3,8 @@
 	import ExperienceDetails from '$lib/components/experience/ExperienceDetails.svelte';
 	import { activities } from '$lib/data/activities';
 	import { page } from '$app/stores';
+		import * as m from '$lib/paraglide/messages';
+
 
 	const paddlingData = activities.paddla;
 
@@ -79,7 +81,7 @@
 						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
 					on:click={() => (activeFilter = 'all')}
 				>
-					Alla upplevelser
+					{m.mad_inclusive_raven_talk()}
 				</button>
 				<button
 					class="rounded-full px-4 py-2 transition-colors {activeFilter === 'guided'
@@ -103,7 +105,7 @@
 						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
 					on:click={() => (activeFilter = 'educational')}
 				>
-					Skolor & föreningar
+					{m.grassy_awful_skate_honor()}
 				</button>
 			</div>
 

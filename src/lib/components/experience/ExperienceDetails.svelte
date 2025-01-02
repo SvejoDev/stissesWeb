@@ -11,7 +11,11 @@
 
 <div class="mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-lg">
 	<div class="relative h-[400px]">
-		<img src={experience.image} alt={experience.title} class="h-full w-full object-cover" />
+		<img
+			src={experience.image}
+			alt={typeof experience.title === 'function' ? experience.title() : experience.title}
+			class="h-full w-full object-cover"
+		/>
 		<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
 			<h1 class="mb-2 text-3xl font-bold text-white">{experience.title}</h1>
 			<p class="text-white/90">{experience.subTitle}</p>

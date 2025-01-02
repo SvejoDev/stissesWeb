@@ -4,6 +4,8 @@
 	import PriceTable from './PriceTable.svelte';
 	import BookingRules from './BookingRules.svelte';
 	import ExtraOptions from './ExtraOptions.svelte';
+	import * as m from '$lib/paraglide/messages';
+	import { round_chunky_cow_treat } from '$lib/paraglide/messages';
 
 	export let experience: Experience;
 </script>
@@ -21,7 +23,7 @@
 		<!-- Basic Info -->
 		<div class="mb-8 grid grid-cols-2 gap-4 md:grid-cols-4">
 			<div>
-				<h3 class="text-sm font-medium text-gray-500">Varaktighet</h3>
+				<h3 class="text-sm font-medium text-gray-500">{m.round_chunky_cow_treat()}</h3>
 				<p class="mt-1 font-semibold">{experience.duration}</p>
 			</div>
 			<div>

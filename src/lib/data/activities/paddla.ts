@@ -2,6 +2,7 @@ import { BOOKING_RULES } from '$lib/constants';
 import type { Activity } from '$lib/types';
 
 
+
 const bookingRulesPrivate = BOOKING_RULES.private;
 const bookingRulesCorporate = BOOKING_RULES.corporate;
 const bookingRulesSchool = BOOKING_RULES.school;

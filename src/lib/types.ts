@@ -10,7 +10,7 @@ export interface Activity {
 }
 
 export interface Experience {
-    title: string;
+    title: string | (() => string);
     subTitle: string;
     description: string;
     image: string;

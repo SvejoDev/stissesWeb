@@ -5,7 +5,6 @@
 	import BookingRules from './BookingRules.svelte';
 	import ExtraOptions from './ExtraOptions.svelte';
 	import * as m from '$lib/paraglide/messages';
-	import { round_chunky_cow_treat } from '$lib/paraglide/messages';
 
 	export let experience: Experience;
 </script>

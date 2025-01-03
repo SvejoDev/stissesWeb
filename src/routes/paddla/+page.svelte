@@ -3,8 +3,7 @@
 	import ExperienceDetails from '$lib/components/experience/ExperienceDetails.svelte';
 	import { activities } from '$lib/data/activities';
 	import { page } from '$app/stores';
-		import * as m from '$lib/paraglide/messages';
-
+	import * as m from '$lib/paraglide/messages';
 
 	const paddlingData = activities.paddla;
 
@@ -12,7 +11,10 @@
 	$: selectedExperience = $page.url.searchParams.get('experience');
 	$: currentExperience = selectedExperience
 		? paddlingData.experiences.find(
-				(exp) => exp.title.toLowerCase().replace(/\s+/g, '-') === selectedExperience
+				(exp) =>
+					(typeof exp.title === 'function' ? exp.title() : exp.title)
+						.toLowerCase()
+						.replace(/\s+/g, '-') === selectedExperience
 			)
 		: null;
 
@@ -44,7 +46,7 @@
 					clip-rule="evenodd"
 				/>
 			</svg>
-			Tillbaka till alla upplevelser
+			{m.cute_fit_ibex_dust()}
 		</button>
 
 		<ExperienceDetails experience={currentExperience} />
@@ -89,7 +91,7 @@
 						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
 					on:click={() => (activeFilter = 'guided')}
 				>
-					Guidade turer
+					{m.short_stout_rabbit_renew()}
 				</button>
 				<button
 					class="rounded-full px-4 py-2 transition-colors {activeFilter === 'corporate'
@@ -97,7 +99,7 @@
 						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
 					on:click={() => (activeFilter = 'corporate')}
 				>
-					Företag
+					{m.maroon_bad_capybara_read()}
 				</button>
 				<button
 					class="rounded-full px-4 py-2 transition-colors {activeFilter === 'educational'
@@ -105,7 +107,7 @@
 						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
 					on:click={() => (activeFilter = 'educational')}
 				>
-					{m.grassy_awful_skate_honor()}
+					{m.misty_drab_samuel_aid()}
 				</button>
 			</div>
 

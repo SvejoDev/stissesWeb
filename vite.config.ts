@@ -9,6 +9,6 @@ export default defineConfig({
 			outdir: "./src/lib/paraglide",
 		}),
 		sveltekit(),
-		
+
 	],
 })

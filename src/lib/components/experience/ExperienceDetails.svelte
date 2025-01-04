@@ -7,18 +7,23 @@
 	import * as m from '$lib/paraglide/messages';
 
 	export let experience: Experience;
+
+	// hjälpfunktion för att hantera både strängar och funktioner som returnerar strängar
+	function getValue(value: string | (() => string)): string {
+		return typeof value === 'function' ? value() : value;
+	}
 </script>
 
 <div class="mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-lg">
 	<div class="relative h-[400px]">
 		<img
 			src={experience.image}
-			alt={typeof experience.title === 'function' ? experience.title() : experience.title}
+			alt={getValue(experience.title)}
 			class="h-full w-full object-cover"
 		/>
 		<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-			<h1 class="mb-2 text-3xl font-bold text-white">{experience.title}</h1>
-			<p class="text-white/90">{experience.subTitle}</p>
+			<h1 class="mb-2 text-3xl font-bold text-white">{getValue(experience.title)}</h1>
+			<p class="text-white/90">{getValue(experience.subTitle)}</p>
 		</div>
 	</div>
 
@@ -26,37 +31,37 @@
 		<!-- Basic Info -->
 		<div class="mb-8 grid grid-cols-2 gap-4 md:grid-cols-4">
 			<div>
-				<h3 class="text-sm font-medium text-gray-500">{m.round_chunky_cow_treat()}</h3>
-				<p class="mt-1 font-semibold">{experience.duration}</p>
+				<h3 class="text-sm font-medium text-gray-500">{m.keen_topical_wren_radiate()}</h3>
+				<p class="mt-1 font-semibold">{getValue(experience.duration)}</p>
 			</div>
 			<div>
-				<h3 class="text-sm font-medium text-gray-500">{m.drab_equal_eel_honor()}</h3>
-				<p class="mt-1 font-semibold">{experience.startLocation}</p>
+				<h3 class="text-sm font-medium text-gray-500">{m.heavy_heavy_swallow_snip()}</h3>
+				<p class="mt-1 font-semibold">{getValue(experience.startLocation)}</p>
 			</div>
 			<div>
-				<h3 class="text-sm font-medium text-gray-500">{m.alive_misty_tortoise_dazzle()}</h3>
-				<p class="mt-1 font-semibold">{experience.endLocation}</p>
+				<h3 class="text-sm font-medium text-gray-500">{m.table_header_goal()}</h3>
+				<p class="mt-1 font-semibold">{getValue(experience.endLocation)}</p>
 			</div>
 			<div>
-				<h3 class="text-sm font-medium text-gray-500">{m.spare_every_nuthatch_boil()}</h3>
+				<h3 class="text-sm font-medium text-gray-500">{m.misty_happy_herring_jump()}</h3>
 				<Badge class="mt-1">
 					{experience.difficulty === 'easy'
-						? 'Lätt'
+						? m.common_difficulty_easy()
 						: experience.difficulty === 'medium'
-							? 'Medel'
-							: 'Svår'}
+							? m.common_difficulty_medium()
+							: m.common_difficulty_hard()}
 				</Badge>
 			</div>
 		</div>
 
 		<!-- Description -->
 		<div class="prose mb-8 max-w-none">
-			<p>{experience.longDescription}</p>
+			<p>{getValue(experience.longDescription)}</p>
 		</div>
 
 		<!-- Included Items -->
 		<div class="mb-8">
-			<h2 class="mb-4 text-xl font-semibold">{m.minor_orange_samuel_trim()}</h2>
+			<h2 class="mb-4 text-xl font-semibold">{m.green_flat_wren_enrich()}</h2>
 			<ul class="grid grid-cols-1 gap-2 md:grid-cols-2">
 				{#each experience.includedItems as item}
 					<li class="flex items-center gap-2">
@@ -72,15 +77,15 @@
 								clip-rule="evenodd"
 							/>
 						</svg>
-						{item}
+						{getValue(item)}
 					</li>
 				{/each}
 			</ul>
 		</div>
 
 		<!-- Price -->
-		{#if typeof experience.price === 'string'}
-			<div class="mb-8 text-2xl font-bold">{experience.price}</div>
+		{#if typeof experience.price === 'string' || typeof experience.price === 'function'}
+			<div class="mb-8 text-2xl font-bold">{getValue(experience.price)}</div>
 		{:else}
 			<PriceTable priceData={experience.price} />
 		{/if}
@@ -91,15 +96,18 @@
 		{/if}
 
 		<!-- Booking Rules -->
-		<BookingRules rules={experience.bookingRules} />
-
+		<BookingRules
+			rules={typeof experience.bookingRules === 'function'
+				? experience.bookingRules()
+				: experience.bookingRules}
+		/>
 		<!-- Book Button -->
 		<div class="mt-8">
 			<a
 				href="/boka"
 				class="block w-full rounded-lg bg-blue-600 px-6 py-3 text-center text-white transition-colors duration-300 hover:bg-blue-700"
 			>
-				{m.this_drab_lamb_adore()}
+				{m.ornate_dark_eagle_promise()}
 			</a>
 		</div>
 	</div>

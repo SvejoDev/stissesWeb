@@ -5,8 +5,11 @@
 	import { page } from '$app/stores';
 	import * as m from '$lib/paraglide/messages';
 
-	const paddlingData = activities.paddla;
+	function getValue(value: string | (() => string)): string {
+		return typeof value === 'function' ? value() : value;
+	}
 
+	const paddlingData = activities.paddla;
 	// Hämta experience från URL-parametrar om den finns
 	$: selectedExperience = $page.url.searchParams.get('experience');
 	$: currentExperience = selectedExperience
@@ -56,18 +59,14 @@
 	<div class="min-h-screen">
 		<!-- Hero Section -->
 		<div class="relative h-[50vh]">
-			<img
-				src={paddlingData.heroImage}
-				alt={paddlingData.title}
-				class="h-full w-full object-cover"
-			/>
+			<img src={paddlingData.heroImage} class="h-full w-full object-cover" />
 			<div class="absolute inset-0 flex items-center justify-center bg-black/40">
 				<div class="text-center">
 					<h1 class="mb-4 text-4xl font-bold text-white md:text-6xl">
-						{paddlingData.title}
+						{getValue(paddlingData.title)}
 					</h1>
 					<p class="mx-auto max-w-2xl px-4 text-xl text-white/90">
-						{paddlingData.description}
+						{getValue(paddlingData.description)}
 					</p>
 				</div>
 			</div>

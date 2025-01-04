@@ -1,132 +1,157 @@
-import { BOOKING_RULES } from '$lib/constants';
 import type { Activity } from '$lib/types';
 
-
-
-const bookingRulesPrivate = BOOKING_RULES.private;
-const bookingRulesCorporate = BOOKING_RULES.corporate;
-const bookingRulesSchool = BOOKING_RULES.school;
+const bookingRulesPrivate = [
+    () => m.booking_rules_private_1(),
+    () => m.booking_rules_private_2(),
+    () => m.booking_rules_private_3(),
+    () => m.booking_rules_private_4()
+];
+const bookingRulesCorporate = [
+    () => m.booking_rules_corporate_1(),
+    () => m.booking_rules_corporate_2(),
+    () => m.booking_rules_corporate_3(),
+    () => m.booking_rules_corporate_4()
+];
+const bookingRulesSchool = [
+    () => m.booking_rules_school_1(),
+    () => m.booking_rules_school_2(),
+    () => m.booking_rules_school_3(),
+    () => m.booking_rules_school_4(),
+    () => m.booking_rules_school_5()
+];
+import * as m from '$lib/paraglide/messages';
 
 export const activities: { paddla: Activity } = {
     paddla: {
-        title: 'Paddla',
-        description: 'Upptäck Ängelholms vackra vattendrag genom att paddla kanot eller kajak. Vi erbjuder flera olika startpunkter och rutter för alla nivåer.',
+        title: () => m.activity_paddle_title(),
+        description: () => m.activity_paddle_description(),
         heroImage: '/images/paddling-hero.jpg',
         experiences: [
             {
-                title: 'Behaglig färd i lugnt vatten',
-                subTitle: 'Perfekt för familjer och nybörjare',
-                description: 'En paddeltur på Rönne å är en hållbar och prisvärd familjeaktivitet. Våra kanoter är mycket stabila och nästan omöjliga att välta så länge man sitter ner när man paddlar.',
+                title: () => m.experience_calm_title(),
+                subTitle: () => m.experience_calm_subtitle(),
+                description: () => m.experience_calm_description(),
                 image: '/images/behaglig-fard.jpg',
-                duration: '1-4 timmar',
+                duration: () => m.experience_calm_duration(),
                 difficulty: 'easy',
                 experienceType: 'regular',
-                startLocation: 'Stisses',
-                endLocation: 'Stisses',
+                startLocation: "Stisses",
+                endLocation: "Stisses",
                 includedItems: [
-                    'Kanot/kajak/SUP',
-                    'Flytväst',
-                    'Paddlar',
-                    'Extrasäten vid behov'
+                    () => m.common_equipment_canoe(),
+                    () => m.common_equipment_vest(),
+                    () => m.common_equipment_paddle(),
+                    () => m.common_equipment_extra_seats()
                 ],
-                requiredExperience: 'Inga förkunskaper krävs',
-                price: '250kr/person (Gratis för alla under 10 år)',
+                requiredExperience: () => m.experience_calm_required(),
+                price: () => m.experience_calm_price(),
                 maxParticipants: {
                     adults: 2,
                     children: 3
                 },
                 bookingRules: bookingRulesPrivate,
-                longDescription: 'En paddeltur på Rönne å är en hållbar och prisvärd familjeaktivitet. Våra kanoter är mycket stabila och nästan omöjliga att välta så länge man sitter ner när man paddlar. Vi kan sätta in extra säten i kanoten så det, förutom två vuxna, finns plats för 1-3 barn (beroende på storlek).'
+                longDescription: () => m.experience_calm_long_description()
             },
             {
-                title: 'Spännande paddling längs Rönne å',
-                subTitle: 'Äventyrlig paddling med transport',
-                description: 'En paddeltur med transport till olika startpunkter längs Rönne å, perfekt för den som vill upptäcka mer av åns sträckning.',
+                title: () => m.experience_adventure_title(),
+                subTitle: () => m.experience_adventure_subtitle(),
+                description: () => m.experience_adventure_description(),
                 image: '/images/spannande-paddling.jpg',
-                duration: '2-6 timmar',
+                duration: () => m.experience_adventure_duration(),
                 difficulty: 'medium',
                 experienceType: 'regular',
-                startLocation: 'Gåsahalsen/Höja/Ugglarp',
-                endLocation: 'Stisses',
+                startLocation: () => m.common_location_varies(),
+                endLocation: "Stisses",
                 includedItems: [
-                    'Kanot/kajak/SUP',
-                    'Flytväst',
-                    'Paddlar',
-                    'Transport till startplats',
-                    'Extrasäten vid behov'
+                    () => m.common_equipment_canoe(),
+                    () => m.common_equipment_vest(),
+                    () => m.common_equipment_paddle(),
+                    () => m.common_equipment_transport(),
+                    () => m.common_equipment_extra_seats()
                 ],
-                requiredExperience: 'Inga förkunskaper krävs',
+                requiredExperience: () => m.experience_adventure_required(),
                 price: {
-                    headers: ['Start', 'Mål', 'Paddeltid', 'Pris/person'],
+                    headers: [
+                        () => m.table_header_start(),
+                        () => m.table_header_goal(),
+                        () => m.table_header_paddle_time(),
+                        () => m.table_header_price()
+                    ],
                     rows: [
                         {
-                            start: 'Gåsahalsen',
-                            goal: 'Stisses',
+                            start: () => m.common_location_gasahalsen(),
+                            goal: "Stisses",
                             duration: '2 h',
                             price: 590
                         },
                         {
-                            start: 'Höja',
-                            goal: 'Stisses',
+                            start: () => m.common_location_hoja(),
+                            goal: "Stisses",
                             duration: '3,5 h',
                             price: 613
                         },
                         {
-                            start: 'Ugglarp',
-                            goal: 'Stisses',
+                            start: () => m.common_location_ugglarp(),
+                            goal: "Stisses",
                             duration: '5 h',
                             price: 738
                         }
                     ]
                 },
                 bookingRules: bookingRulesPrivate,
-                longDescription: 'En paddeltur på Rönne å är en hållbar och prisvärd familjeaktivitet. Våra kanoter är mycket stabila och nästan omöjliga att välta så länge man sitter ner när man paddlar. Vi kan sätta in extra säten i kanoten så det, förutom två vuxna, finns plats för 1-3 barn (beroende på storlek). Ert äventyr börjar med att vi samlas hos oss där våra duktiga instruktörer hjälper er med att välja rätt flytväst och paddel. Därefter tar vi plats i någon av våra bussar för avfärd till valfri startplats. Ni bestämmer om vi ska åka till Gåsahalsen (cirka 2 timmars paddling), Höja (cirka 3,5 timmars paddling) eller Ugglarp (cirka 5 timmars paddling).'
+                longDescription: () => m.experience_adventure_long_description()
             },
             {
-                title: 'Utmanande paddling i vacker natur',
-                subTitle: 'Flerdagarsäventyr med övernattning',
-                description: 'En längre paddlingstur med övernattning, perfekt för dem som vill uppleva naturen på djupet.',
+                title: () => m.experience_challenging_title(),
+                subTitle: () => m.experience_challenging_subtitle(),
+                description: () => m.experience_challenging_description(),
                 image: '/images/utmanande-paddling.jpg',
-                duration: '2-3 dagar',
+                duration: () => m.experience_challenging_duration(),
                 difficulty: 'hard',
                 experienceType: 'regular',
-                startLocation: 'Ugglarp/Tranarpsbron/Klippan',
-                endLocation: 'Stisses',
+                startLocation: () => m.common_location_varies(),
+                endLocation: "Stisses",
                 includedItems: [
-                    'Kanot/kajak/SUP',
-                    'Flytväst',
-                    'Paddlar',
-                    'Transport till startplats',
-                    'Extrasäten vid behov'
+                    () => m.common_equipment_canoe(),
+                    () => m.common_equipment_vest(),
+                    () => m.common_equipment_paddle(),
+                    () => m.common_equipment_transport(),
+                    () => m.common_equipment_extra_seats()
                 ],
-                requiredExperience: 'Viss vana av friluftsliv',
+                requiredExperience: () => m.experience_challenging_required(),
                 price: {
-                    headers: ['Start', 'Mål', 'Övernattningar', 'Paddeltid/dag', 'Pris/person'],
+                    headers: [
+                        () => m.table_header_start(),
+                        () => m.table_header_goal(),
+                        () => m.table_header_nights(),
+                        () => m.table_header_paddle_time(),
+                        () => m.table_header_price()
+                    ],
                     rows: [
                         {
                             start: 'Ugglarp (17 km)',
-                            goal: 'Stisses',
+                            goal: "Stisses",
                             nights: 1,
                             paddleTime: '2,5 h',
                             price: 990
                         },
                         {
                             start: 'Tranarpsbron (22 km)',
-                            goal: 'Stisses',
+                            goal: "Stisses",
                             nights: 1,
                             paddleTime: '3 h',
                             price: 990
                         },
                         {
                             start: 'Klippan (35 km)',
-                            goal: 'Stisses',
+                            goal: "Stisses",
                             nights: 1,
                             paddleTime: '5 h',
                             price: 990
                         },
                         {
                             start: 'Klippan (35 km)',
-                            goal: 'Stisses',
+                            goal: "Stisses",
                             nights: 2,
                             paddleTime: '3,5 h',
                             price: 1190
@@ -134,54 +159,52 @@ export const activities: { paddla: Activity } = {
                     ]
                 },
                 bookingRules: bookingRulesPrivate,
-                longDescription: 'Om man vill göra något riktigt kul tillsammans med sina bästa vänner så är att paddla med övernattning ett oslagbart alternativ. Det blir gärna mycket skratt när dråpliga minnen och historier ska återges när man äntligen får tid att umgås några dagar utan stress och måsten. Ert äventyr börjar med att vi samlas hos oss där våra duktiga instruktörer hjälper er att med att välja rätt flytväst, paddel mm. Vi packar in allt vi behöver i någon av våra bussar och åker sen till vald startplats. Vi ger er tips på lämpliga platser att övernatta.'
+                longDescription: () => m.experience_challenging_long_description()
             },
             {
-                title: 'Magisk nattpaddling',
-                subTitle: 'Guidad kvällsupplevelse på vattnet',
-                description: 'Ett unikt äventyr där vi paddlar i mörkret med självlysande paddlar och upplever Rönne å på ett helt nytt sätt.',
+                title: () => m.experience_night_title(),
+                subTitle: () => m.experience_night_subtitle(),
+                description: () => m.experience_night_description(),
                 image: '/images/natt-paddling.jpg',
-                duration: '3 timmar (21:00-00:00)',
+                duration: () => m.experience_night_duration(),
                 difficulty: 'medium',
                 experienceType: 'guided',
-                startLocation: 'Stisses',
-                endLocation: 'Stisses',
+                startLocation: "Stisses",
+                endLocation: "Stisses",
                 includedItems: [
-                    'Kanot/kajak/SUP',
-                    'Flytväst',
-                    'Pannlampa',
-                    'Självlysande paddlar',
-                    'Öronsnäcka',
-                    'Mat vid eldstad'
+                    () => m.common_equipment_canoe(),
+                    () => m.common_equipment_vest(),
+                    () => m.common_equipment_headlamp(),
+                    () => m.common_equipment_glow_paddles(),
+                    () => m.common_equipment_earpiece(),
+                    () => m.common_equipment_food()
                 ],
-                requiredExperience: 'Inga förkunskaper krävs',
-                price: '950 kr per person',
+                requiredExperience: () => m.experience_night_required(),
+                price: () => m.experience_night_price(),
                 maxParticipants: {
                     total: 12
                 },
                 bookingRules: bookingRulesPrivate,
-                longDescription: 'Nu talar vi riktigt coolt äventyr. Något magiskt och spännande. Vi samlas 21:00 och börjar med mat kring eldstaden. Vi utrustar dig med flytväst, pannlampa, självlysande paddlar och öronsnäcka. Du lyssnar på guidens osannolika historier medans vi inväntar mörkret. Är historien om "Skallepär" sann? Det sägs att han ibland sitter helt stilla på sin brygga i mörkret och bara stirrar ut över Rönne å.... När vi är mätta och redo glider vi ljudlöst genom nattmörkret och du kommer få uppleva ett magiskt vackert Ängelholm sett från lugna Rönne å.'
+                longDescription: () => m.experience_night_long_description()
             },
-
             {
-                title: 'Kajak 2.0',
-                subTitle: 'Guidad träning för dig som vill utvecklas',
-                description: 'Fördjupa dina kajakkunskaper med en erfaren instruktör. Lär dig mer om teknik, säkerhet och räddning.',
+                title: () => m.experience_advanced_title(),
+                subTitle: () => m.experience_advanced_subtitle(),
+                description: () => m.experience_advanced_description(),
                 image: '/images/kajak-2.jpg',
-                duration: '3 timmar (10:00-13:00)',
+                duration: () => m.experience_advanced_duration(),
                 difficulty: 'medium',
                 experienceType: 'guided',
-                startLocation: 'Stisses',
-                endLocation: 'Stisses',
+                startLocation: "Stisses",
+                endLocation: "Stisses",
                 includedItems: [
-                    'Kajak (med eller utan roder)',
-                    'Flytväst',
-                    'Paddlar',
-                    'Professionell instruktion',
-                    'Säkerhetsutrustning'
+                    () => m.common_equipment_canoe(),
+                    () => m.common_equipment_vest(),
+                    () => m.common_equipment_paddle(),
+                    () => m.common_equipment_safety()
                 ],
-                requiredExperience: 'Grundläggande kajakpaddling',
-                price: '950 kr per person',
+                requiredExperience: () => m.experience_advanced_required(),
+                price: () => m.experience_advanced_price(),
                 maxParticipants: {
                     total: 8
                 },
@@ -200,44 +223,48 @@ export const activities: { paddla: Activity } = {
                     ]
                 },
                 bookingRules: bookingRulesPrivate,
-                longDescription: 'Den här upplevelsen vänder sig till dig som har provat att paddla lite Kajak i Rönne å men som nu vill lära dig mer av en riktigt erfaren paddlare. Vi samlas 10:00 och vår guide börjar dagen med lite introduktion på land. Du får hjälp med att ställa in fotstöden, grundläggande paddelteknik, hur man lättast sjösätter och kommer i och ur kajaken, kamraträddning om du kapsejsat och lite om allmän säkerhet. Efter genomgång paddlar vi ut och tränar praktiskt på det vi gått igenom på land. Dagens vindstyrka, riktning och våghöjd avgör vilken tur som är möjlig den aktuella dagen.'
+                longDescription: () => m.experience_advanced_long_description()
             },
             {
-                title: 'Minnesvärd upplevelse',
-                subTitle: 'Skräddarsydd företagsaktivitet',
-                description: 'En perfekt kombination av paddling, mat och teambuilding för företag och grupper.',
+                title: () => m.experience_corporate_title(),
+                subTitle: () => m.experience_corporate_subtitle(),
+                description: () => m.experience_corporate_description(),
                 image: '/images/foretag-paddling.jpg',
-                duration: 'Heldag eller halvdag',
+                duration: () => m.experience_corporate_duration(),
                 difficulty: 'easy',
                 experienceType: 'corporate',
-                startLocation: 'Varierar',
-                endLocation: 'Stisses',
+                startLocation: () => m.common_location_varies(),
+                endLocation: "Stisses",
                 includedItems: [
-                    'Kanoter/kajaker/SUP',
-                    'Flytväst',
-                    'Paddlar',
-                    'Instruktion',
-                    'Säkerhetsutrustning'
+                    () => m.common_equipment_canoe(),
+                    () => m.common_equipment_vest(),
+                    () => m.common_equipment_paddle(),
+                    () => m.common_equipment_safety()
                 ],
-                requiredExperience: 'Inga förkunskaper krävs',
+                requiredExperience: () => m.experience_corporate_required(),
                 price: {
-                    headers: ['Start', 'Mål', 'Paddeltid', 'Pris/person'],
+                    headers: [
+                        () => m.table_header_start(),
+                        () => m.table_header_goal(),
+                        () => m.table_header_paddle_time(),
+                        () => m.table_header_price()
+                    ],
                     rows: [
                         {
-                            start: 'Stisses',
-                            goal: 'Stisses',
+                            start: "Stisses",
+                            goal: "Stisses",
                             duration: '1-4 h',
                             price: 290
                         },
                         {
-                            start: 'Gåsahalsen',
-                            goal: 'Stisses',
+                            start: () => m.common_location_gasahalsen(),
+                            goal: "Stisses",
                             duration: '2 h',
                             price: 490
                         },
                         {
-                            start: 'Höja',
-                            goal: 'Stisses',
+                            start: () => m.common_location_hoja(),
+                            goal: "Stisses",
                             duration: '3,5 h',
                             price: 490
                         }
@@ -246,65 +273,69 @@ export const activities: { paddla: Activity } = {
                 extras: {
                     food: [
                         {
-                            title: 'Fika',
-                            description: 'Kaffe/The + Bulle (Även glutenfritt alternativ serveras)',
+                            title: () => m.extra_food_coffee(),
+                            description: () => m.extra_food_coffee_description(),
                             price: 69
                         },
                         {
-                            title: 'Soppa',
-                            description: 'Gulaschsoppa eller Morotssoppa med ingefära (vegetarisk och vegansk)',
+                            title: () => m.extra_food_soup(),
+                            description: () => m.extra_food_soup_description(),
                             price: 89
                         },
                         {
-                            title: 'Korvbuffé',
-                            description: 'Massor av olika korvar + tillbehör (Även vegetariska, laktosfria och glutenfria alternativ serveras)',
+                            title: () => m.extra_food_sausage(),
+                            description: () => m.extra_food_sausage_description(),
                             price: 99
                         }
                     ],
                     teambuilding: {
                         price: 200,
-                        description: 'Noga uttänkta och välbeprövade teambuilding-övningar som passar utmärkt att göra innan eller efter paddlingen. Varje övning tar cirka 10 minuter och genomförs lagvis med 2-5 deltagare per lag.'
+                        description: () => m.extra_teambuilding_description()
                     }
                 },
                 bookingRules: bookingRulesCorporate,
-                longDescription: 'Efter många års erfarenhet vet vi att paddla + mat + teambuilding sammantaget blir en riktigt bra och minnesvärd personalaktivitet. Väljer ni att paddla kanoter så är de mycket stabila och nästan omöjliga att välta så länge man sitter ner när man paddlar. Vi kan sätta in extra säten om ni önskar vara tre personer i någon kanot. Vill någon paddla själv föreslår vi kajak eller SUP. Till all mat serveras vatten, läsk eller lättöl. Det går utmärkt att ha med egen alkoholhaltig dryck om så önskas.'
+                longDescription: () => m.experience_corporate_long_description()
             },
             {
-                title: 'Lärande friluftsliv',
-                subTitle: 'För skolor och föreningar',
-                description: 'Skräddarsydda paddlingsupplevelser för skolklasser och föreningar med fokus på lärande och naturupplevelser.',
+                title: () => m.experience_school_title(),
+                subTitle: () => m.experience_school_subtitle(),
+                description: () => m.experience_school_description(),
                 image: '/images/skola-paddling.jpg',
-                duration: 'Varierande',
+                duration: () => m.experience_school_duration(),
                 difficulty: 'easy',
                 experienceType: 'educational',
-                startLocation: 'Varierar',
-                endLocation: 'Stisses',
+                startLocation: () => m.common_location_varies(),
+                endLocation: "Stisses",
                 includedItems: [
-                    'Kanoter/kajaker',
-                    'Flytväst',
-                    'Paddlar',
-                    'Instruktion',
-                    'Säkerhetsutrustning'
+                    () => m.common_equipment_canoe(),
+                    () => m.common_equipment_vest(),
+                    () => m.common_equipment_paddle(),
+                    () => m.common_equipment_safety()
                 ],
-                requiredExperience: 'Inga förkunskaper krävs',
+                requiredExperience: () => m.experience_school_required(),
                 price: {
-                    headers: ['Start', 'Mål', 'Cirka tid', 'Pris/person'],
+                    headers: [
+                        () => m.table_header_start(),
+                        () => m.table_header_goal(),
+                        () => m.table_header_duration(),
+                        () => m.table_header_price()
+                    ],
                     rows: [
                         {
-                            start: 'Stisses (1-12 km)',
-                            goal: 'Stisses',
+                            start: "Stisses",
+                            goal: "Stisses",
                             duration: '1-4 h',
                             price: 160
                         },
                         {
-                            start: 'Höja (11 km)',
-                            goal: 'Stisses',
+                            start: () => m.common_location_hoja(),
+                            goal: "Stisses",
                             duration: '3,5 h',
                             price: 240
                         },
                         {
-                            start: 'Ugglarp (17 km)',
-                            goal: 'Stisses',
+                            start: () => m.common_location_ugglarp(),
+                            goal: "Stisses",
                             duration: '5 h',
                             price: 290
                         }
@@ -315,7 +346,7 @@ export const activities: { paddla: Activity } = {
                     perInstructor: 8
                 },
                 bookingRules: bookingRulesSchool,
-                longDescription: 'Denna upplevelse vänder sig till dig som jobbar inom skola, fritidsgård, förening eller liknande och som planerar friluftsdag eller annan gemensam aktivitet för era elever/ungdomar. Våra kanoter är mycket stabila och nästan omöjliga att välta så länge man sitter ner när man paddlar. Vi kan sätta in extra säten i om ni i någon kanot önskar vara tre personer. Vill någon paddla själv föreslår vi kajak.'
+                longDescription: () => m.experience_school_long_description()
             }
         ]
     }

@@ -3,25 +3,25 @@ export type Difficulty = 'easy' | 'medium' | 'hard';
 export type ExperienceType = 'regular' | 'guided' | 'corporate' | 'educational';
 
 export interface Activity {
-    title: string;
-    description: string;
+    title: string | (() => string);
+    description: string | (() => string);
     heroImage: string;
     experiences: Experience[];
 }
 
 export interface Experience {
     title: string | (() => string);
-    subTitle: string;
-    description: string;
+    subTitle: string | (() => string);
+    description: string | (() => string);
     image: string;
-    duration: string;
+    duration: string | (() => string);
     difficulty: Difficulty;
     experienceType: ExperienceType;
-    startLocation: string;
+    startLocation: string | (() => string);
     endLocation: string;
-    includedItems: string[];
-    requiredExperience: string;
-    price: string | PriceTable;
+    includedItems: (string | (() => string))[];
+    requiredExperience: string | (() => string);
+    price: string | (() => string) | PriceTable;
     maxParticipants?: {
         adults?: number;
         children?: number;
@@ -36,22 +36,31 @@ export interface Experience {
         clothing?: string[];
         bring?: string[];
     };
-    bookingRules: string;
-    longDescription: string;
-}
+    longDescription: string | (() => string);
+    bookingRules: string[] | (() => string)[] | (() => string[]);
+};
 
 export interface PriceTable {
-    headers: string[];
-    rows: Record<string, string | number>[];
+    headers: (string | (() => string))[];
+    rows: PriceRow[];
+}
+
+export interface PriceRow {
+    start?: string | (() => string);
+    goal?: string | (() => string);
+    duration?: string;
+    paddleTime?: string | (() => string);
+    nights?: number;
+    price: number;
 }
 
 export interface FoodOption {
-    title: string;
-    description: string;
+    title: string | (() => string);
+    description: string | (() => string);
     price: number;
 }
 
 export interface TeamBuilding {
     price: number;
-    description: string;
+    description: string | (() => string);
 }

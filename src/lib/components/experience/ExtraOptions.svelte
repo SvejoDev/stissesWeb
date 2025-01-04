@@ -4,6 +4,11 @@
 	import * as m from '$lib/paraglide/messages';
 
 	export let experience: Experience;
+
+	// hjälpfunktion för att hantera både strängar och funktioner som returnerar strängar
+	function getValue(value: string | (() => string)): string {
+		return typeof value === 'function' ? value() : value;
+	}
 </script>
 
 <div class="mb-8 space-y-8">
@@ -14,10 +19,10 @@
 				{#each experience.extras.food as option}
 					<div class="rounded-lg bg-white p-4 shadow">
 						<div class="mb-2 flex items-start justify-between">
-							<h3 class="font-semibold">{option.title}</h3>
+							<h3 class="font-semibold">{getValue(option.title)}</h3>
 							<Badge variant="secondary">{option.price} kr</Badge>
 						</div>
-						<p class="text-sm text-gray-600">{option.description}</p>
+						<p class="text-sm text-gray-600">{getValue(option.description)}</p>
 					</div>
 				{/each}
 			</div>
@@ -32,7 +37,7 @@
 					<h3 class="font-semibold">{m.civil_silly_hare_offer()}</h3>
 					<Badge variant="secondary">{experience.extras.teambuilding.price} kr/person</Badge>
 				</div>
-				<p class="text-gray-600">{experience.extras.teambuilding.description}</p>
+				<p class="text-gray-600">{getValue(experience.extras.teambuilding.description)}</p>
 			</div>
 		</div>
 	{/if}

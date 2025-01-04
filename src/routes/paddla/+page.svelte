@@ -59,7 +59,11 @@
 	<div class="min-h-screen">
 		<!-- Hero Section -->
 		<div class="relative h-[50vh]">
-			<img src={paddlingData.heroImage} class="h-full w-full object-cover" />
+			<img
+				src={paddlingData.heroImage}
+				alt={getValue(paddlingData.title)}
+				class="absolute bottom-0 h-full w-full object-cover object-bottom"
+			/>
 			<div class="absolute inset-0 flex items-center justify-center bg-black/40">
 				<div class="text-center">
 					<h1 class="mb-4 text-4xl font-bold text-white md:text-6xl">

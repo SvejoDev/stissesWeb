@@ -3,14 +3,21 @@
 	import ExperienceDetails from '$lib/components/experience/ExperienceDetails.svelte';
 	import { activities } from '$lib/data/activities';
 	import { page } from '$app/stores';
+	import * as m from '$lib/paraglide/messages';
+
+	function getValue(value: string | (() => string)): string {
+		return typeof value === 'function' ? value() : value;
+	}
 
 	const paddlingData = activities.paddla;
-
 	// Hämta experience från URL-parametrar om den finns
 	$: selectedExperience = $page.url.searchParams.get('experience');
 	$: currentExperience = selectedExperience
 		? paddlingData.experiences.find(
-				(exp) => exp.title.toLowerCase().replace(/\s+/g, '-') === selectedExperience
+				(exp) =>
+					(typeof exp.title === 'function' ? exp.title() : exp.title)
+						.toLowerCase()
+						.replace(/\s+/g, '-') === selectedExperience
 			)
 		: null;
 
@@ -42,7 +49,7 @@
 					clip-rule="evenodd"
 				/>
 			</svg>
-			Tillbaka till alla upplevelser
+			{m.cute_fit_ibex_dust()}
 		</button>
 
 		<ExperienceDetails experience={currentExperience} />
@@ -52,18 +59,14 @@
 	<div class="min-h-screen">
 		<!-- Hero Section -->
 		<div class="relative h-[50vh]">
-			<img
-				src={paddlingData.heroImage}
-				alt={paddlingData.title}
-				class="h-full w-full object-cover"
-			/>
+			<img src={paddlingData.heroImage} class="h-full w-full object-cover" />
 			<div class="absolute inset-0 flex items-center justify-center bg-black/40">
 				<div class="text-center">
 					<h1 class="mb-4 text-4xl font-bold text-white md:text-6xl">
-						{paddlingData.title}
+						{getValue(paddlingData.title)}
 					</h1>
 					<p class="mx-auto max-w-2xl px-4 text-xl text-white/90">
-						{paddlingData.description}
+						{getValue(paddlingData.description)}
 					</p>
 				</div>
 			</div>
@@ -79,7 +82,7 @@
 						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
 					on:click={() => (activeFilter = 'all')}
 				>
-					Alla upplevelser
+					{m.mad_inclusive_raven_talk()}
 				</button>
 				<button
 					class="rounded-full px-4 py-2 transition-colors {activeFilter === 'guided'
@@ -87,7 +90,7 @@
 						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
 					on:click={() => (activeFilter = 'guided')}
 				>
-					Guidade turer
+					{m.short_stout_rabbit_renew()}
 				</button>
 				<button
 					class="rounded-full px-4 py-2 transition-colors {activeFilter === 'corporate'
@@ -95,7 +98,7 @@
 						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
 					on:click={() => (activeFilter = 'corporate')}
 				>
-					Företag
+					{m.maroon_bad_capybara_read()}
 				</button>
 				<button
 					class="rounded-full px-4 py-2 transition-colors {activeFilter === 'educational'
@@ -103,7 +106,7 @@
 						: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
 					on:click={() => (activeFilter = 'educational')}
 				>
-					Skolor & föreningar
+					{m.misty_drab_samuel_aid()}
 				</button>
 			</div>
 

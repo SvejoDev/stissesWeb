@@ -4,6 +4,7 @@
 	import { activities } from '$lib/data/activities';
 	import { page } from '$app/stores';
 	import * as m from '$lib/paraglide/messages';
+	import Footer from '$lib/components/Footer.svelte';
 
 	function getValue(value: string | (() => string)): string {
 		return typeof value === 'function' ? value() : value;
@@ -123,3 +124,5 @@
 		</div>
 	</div>
 {/if}
+
+<Footer />

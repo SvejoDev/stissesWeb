@@ -108,8 +108,8 @@
 {#if isFullscreen}
 	<div
 		class="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm"
-		on:click={toggleFullscreen}
-		on:keydown={(e) => e.key === 'Escape' && toggleFullscreen()}
+		onclick={toggleFullscreen}
+		onkeydown={(e) => e.key === 'Escape' && toggleFullscreen()}
 		role="button"
 		tabindex="0"
 	>

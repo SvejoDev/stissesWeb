@@ -9,6 +9,19 @@
 
 	export let experience: Experience;
 
+	function getDifficultyColor(difficulty: Experience['difficulty']) {
+		switch (difficulty) {
+			case 'easy':
+				return 'bg-green-100 text-green-800';
+			case 'medium':
+				return 'bg-yellow-100 text-yellow-800';
+			case 'hard':
+				return 'bg-red-100 text-red-800';
+			default:
+				return 'bg-gray-100 text-gray-800';
+		}
+	}
+
 	// hjälpfunktion för att hantera både strängar och funktioner som returnerar strängar
 	function getValue(value: string | (() => string)): string {
 		return typeof value === 'function' ? value() : value;
@@ -45,7 +58,7 @@
 			</div>
 			<div>
 				<h3 class="text-sm font-medium text-gray-500">{m.misty_happy_herring_jump()}</h3>
-				<Badge class="mt-1">
+				<Badge class={`mt-1 ${getDifficultyColor(experience.difficulty)}`}>
 					{experience.difficulty === 'easy'
 						? m.common_difficulty_easy()
 						: experience.difficulty === 'medium'
@@ -105,12 +118,27 @@
 				: experience.bookingRules}
 		/>
 		<!-- Book Button -->
-		<div class="mt-8">
+		<div class="fixed bottom-6 right-6 z-50">
 			<a
 				href="/boka"
-				class="block w-full rounded-lg bg-blue-600 px-6 py-3 text-center text-white transition-colors duration-300 hover:bg-blue-700"
+				class="group flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg ring-1 ring-black/5 transition-all duration-300 hover:scale-105 hover:bg-primary/90 hover:shadow-xl active:scale-95"
 			>
 				{m.ornate_dark_eagle_promise()}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="16"
+					height="16"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="transition-transform duration-300 group-hover:translate-x-1"
+				>
+					<path d="M5 12h14" />
+					<path d="m12 5 7 7-7 7" />
+				</svg>
 			</a>
 		</div>
 	</div>

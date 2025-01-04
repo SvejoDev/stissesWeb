@@ -50,7 +50,7 @@
 </script>
 
 <div
-	class="overflow-hidden rounded-lg bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
+	class="flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
 >
 	<div class="relative">
 		<img src={experience.image} alt={getValue(experience.title)} class="h-48 w-full object-cover" />
@@ -63,18 +63,20 @@
 		{/if}
 	</div>
 
-	<div class="p-6">
-		<h3 class="mb-1 text-xl font-semibold">{getValue(experience.title)}</h3>
-		<p class="mb-4 text-sm text-gray-500">{getValue(experience.subTitle)}</p>
+	<div class="flex flex-1 flex-col p-6">
+		<div class="flex-1">
+			<h3 class="mb-1 text-xl font-semibold">{getValue(experience.title)}</h3>
+			<p class="mb-4 text-sm text-gray-500">{getValue(experience.subTitle)}</p>
 
-		<div class="mb-4 flex items-center gap-2">
-			<Badge class={getDifficultyColor(experience.difficulty)}>
-				{getDifficultyLabel(experience.difficulty)}
-			</Badge>
-			<span class="text-sm text-gray-600">{getValue(experience.duration)}</span>
+			<div class="mb-4 flex items-center gap-2">
+				<Badge class={getDifficultyColor(experience.difficulty)}>
+					{getDifficultyLabel(experience.difficulty)}
+				</Badge>
+				<span class="text-sm text-gray-600">{getValue(experience.duration)}</span>
+			</div>
+
+			<p class="mb-4 line-clamp-3 text-gray-600">{getValue(experience.description)}</p>
 		</div>
-
-		<p class="mb-4 line-clamp-3 text-gray-600">{getValue(experience.description)}</p>
 
 		<div class="mt-4 flex items-center justify-between">
 			<div class="text-lg font-semibold">

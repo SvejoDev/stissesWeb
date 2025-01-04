@@ -101,7 +101,7 @@
 									{#each aboutUsItems as item}
 										<a
 											href={item.href}
-											class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-900"
+											class="block rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-900"
 											>{item.label}</a
 										>
 									{/each}

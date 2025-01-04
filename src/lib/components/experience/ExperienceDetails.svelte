@@ -5,6 +5,7 @@
 	import BookingRules from './BookingRules.svelte';
 	import ExtraOptions from './ExtraOptions.svelte';
 	import * as m from '$lib/paraglide/messages';
+	import PaddlingMaps from '$lib/components/experience/PaddlingMaps.svelte';
 
 	export let experience: Experience;
 
@@ -89,6 +90,8 @@
 		{:else}
 			<PriceTable priceData={experience.price} />
 		{/if}
+
+		<PaddlingMaps />
 
 		<!-- Extras if available -->
 		{#if experience.extras}

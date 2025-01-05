@@ -4,8 +4,7 @@
 	import ExperienceDetails from '$lib/components/experience/ExperienceDetails.svelte';
 	import { page } from '$app/stores';
 	import ComingSoon from '$lib/components/ComingSoon.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import * as m from '$lib/paraglide/messages';
+    	import * as m from '$lib/paraglide/messages';
 
 	export let activity: Activity;
 
@@ -132,5 +131,3 @@
 		{/if}
 	</div>
 {/if}
-
-<Footer />

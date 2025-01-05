@@ -5,4 +5,4 @@
   const activityData = activities.fiska;
 </script>
 
-<ActivityLayout activity={activityData} />
+<ActivityLayout activity={activityData} imagePosition="top"/>

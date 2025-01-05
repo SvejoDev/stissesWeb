@@ -9,7 +9,7 @@
 
 	export let activity: Activity;
 
-	export let imagePosition: 'center' | 'bottom' = 'center';
+	export let imagePosition: 'top' | 'center' | 'bottom' = 'center';
 
 	function getValue(value: string | (() => string)): string {
 		return typeof value === 'function' ? value() : value;

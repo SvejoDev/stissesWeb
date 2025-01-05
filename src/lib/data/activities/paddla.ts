@@ -350,5 +350,4 @@ export const activities: { paddla: Activity } = {
             }
         ]
     }
-    // Fortsättning med andra aktiviteter följer...
 };

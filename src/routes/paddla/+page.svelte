@@ -1,5 +1,8 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import ActivityLayout from '$lib/components/ActivityLayout.svelte';
+	import { activities } from '$lib/data/activities';
 
-	let { data }: { data: PageData } = $props();
+	const activityData = activities.paddla;
 </script>
+
+<ActivityLayout activity={activityData} imagePosition="bottom" />

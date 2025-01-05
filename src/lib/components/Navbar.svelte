@@ -5,7 +5,6 @@
 	import type { AvailableLanguageTag } from '$lib/paraglide/runtime';
 	import * as m from '$lib/paraglide/messages';
 	import { onMount } from 'svelte';
-	import { lang } from '$lib/lang';
 
 	function switchLanguage(newLang: AvailableLanguageTag) {
 		// tar bort alla språkprefix från den nuvarande sökvägen
@@ -102,7 +101,7 @@
 									{#each aboutUsItems as item}
 										<a
 											href={item.href}
-											class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-900"
+											class="block rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-900"
 											>{item.label}</a
 										>
 									{/each}

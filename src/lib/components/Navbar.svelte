@@ -41,12 +41,12 @@
 
 	const aboutUsItems = [
 		{ href: '/om-oss', label: m.sleek_day_martin_reside() },
-		{ href: '/viktigt-for-oss', label: m.awful_witty_owl_lock() },
-		{ href: '/vart-team', label: m.same_bad_warbler_boil() },
-		{ href: '/arbeta-hos-oss', label: m.sound_grassy_guppy_clip() },
-		{ href: '/praktik', label: m.key_noble_meerkat_radiate() },
-		{ href: '/presentkort', label: m.round_simple_skunk_hunt() },
-		{ href: '/partners', label: m.weary_keen_dingo_amuse() }
+		{ href: '/om-oss/viktigt-for-oss', label: m.awful_witty_owl_lock() },
+		//{ href: '/om-oss/vart-team', label: m.same_bad_warbler_boil() },
+		{ href: '/om-oss/arbeta-hos-oss', label: m.sound_grassy_guppy_clip() },
+		{ href: '/om-oss/praktik', label: m.key_noble_meerkat_radiate() },
+		{ href: '/om-oss/presentkort', label: m.round_simple_skunk_hunt() },
+		{ href: '/om-oss/partners', label: m.weary_keen_dingo_amuse() }
 	];
 
 	const languages = [

@@ -9,6 +9,14 @@ export interface Activity {
     experiences: Experience[];
 }
 
+
+
+export interface JobRole {
+    id: string;
+    title: () => string;
+    description: () => string;
+}
+
 export interface Experience {
     title: string | (() => string);
     subTitle: string | (() => string);

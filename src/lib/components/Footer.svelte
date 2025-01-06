@@ -50,7 +50,7 @@
 	];
 </script>
 
-<footer class="relative bg-gray-900 text-white">
+<footer class="relative z-50 bg-gray-900 text-white">
 	<!-- Hero-liknande bild i toppen av footern -->
 	<div class="relative h-48 overflow-hidden sm:h-64">
 		<img

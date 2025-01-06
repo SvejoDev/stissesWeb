@@ -4,7 +4,7 @@
 	import Testimonials from '$lib/components/Testimonials.svelte';
 </script>
 
-<div class="-mt-16 h-screen w-full">
+<div>
 	<Hero />
 	<Testimonials />
 	<USP />

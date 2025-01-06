@@ -57,7 +57,7 @@
 	];
 </script>
 
-<nav class="relative z-50 bg-green-50 shadow-md">
+<nav class="fixed z-50 w-full bg-green-50 shadow-md">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="flex h-16 items-center justify-between">
 			<div class="flex items-center">

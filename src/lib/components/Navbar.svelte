@@ -15,8 +15,14 @@
 		goto(newPath, { replaceState: true });
 	}
 
-	let isAboutUsOpen = false;
-	let isMobileMenuOpen = false;
+	let isAboutUsOpen = $state(false);
+	let isMobileMenuOpen = $state(false);
+
+	$effect(() => {
+		// när url:en ändras, stäng mobilmenyn
+		$page.url;
+		isMobileMenuOpen = false;
+	});
 
 	// Stäng dropdown när man klickar utanför
 	let aboutUsRef: HTMLDivElement;

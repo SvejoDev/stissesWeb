@@ -4,7 +4,6 @@
 	import ExperienceDetails from '$lib/components/experience/ExperienceDetails.svelte';
 	import { page } from '$app/stores';
 	import ComingSoon from '$lib/components/ComingSoon.svelte';
-	import Footer from '$lib/components/Footer.svelte';
 	import * as m from '$lib/paraglide/messages';
 
 	export let activity: Activity;
@@ -61,7 +60,7 @@
 	</div>
 {:else}
 	<!-- Hero och översikt -->
-	<div class="min-h-screen">
+	<div class="min-h-screen pt-16">
 		<!-- Hero Section -->
 		<div class="relative h-[50vh]">
 			<img
@@ -132,5 +131,3 @@
 		{/if}
 	</div>
 {/if}
-
-<Footer />

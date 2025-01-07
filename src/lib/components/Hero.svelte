@@ -35,7 +35,7 @@
 	];
 </script>
 
-<div class="relative h-full w-full overflow-hidden">
+<div class="relative h-screen w-full overflow-hidden">
 	<!-- bild bakgrund -->
 	<div class="absolute inset-0 z-0">
 		<img

@@ -6,7 +6,7 @@
 		{
 			name: 'Facebook',
 			url: 'https://www.facebook.com/Stisses/',
-			icon: 'mdi:facebook' // använder material design icons
+			icon: 'mdi:facebook'
 		},
 		{
 			name: 'Instagram',
@@ -29,7 +29,7 @@
 		{
 			name: 'TripAdvisor',
 			url: 'https://www.tripadvisor.se/UserReviewEdit-g189835-d14930712-Stisses-Angelholm_Skane_County.html',
-			icon: 'la:tripadvisor' // ändrar från mdi till line awesome (la) för tripadvisor
+			icon: 'la:tripadvisor'
 		}
 	];
 
@@ -50,8 +50,7 @@
 	];
 </script>
 
-<footer class="relative bg-gray-900 text-white">
-	<!-- Hero-liknande bild i toppen av footern -->
+<footer class="bg-gray-900 text-white">
 	<div class="relative h-48 overflow-hidden sm:h-64">
 		<img
 			src="/images/footer-hero.jpg"

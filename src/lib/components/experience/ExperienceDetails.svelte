@@ -118,7 +118,7 @@
 				: experience.bookingRules}
 		/>
 		<!-- Book Button -->
-		<div class="fixed bottom-6 right-6 z-50">
+		<div class="fixed bottom-6 right-6 z-50 hidden">
 			<a
 				href="/boka"
 				class="group flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg ring-1 ring-black/5 transition-all duration-300 hover:scale-105 hover:bg-primary/90 hover:shadow-xl active:scale-95"

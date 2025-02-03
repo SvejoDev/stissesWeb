@@ -36,7 +36,7 @@
 </script>
 
 {#if currentExperience}
-	<div class="mx-auto max-w-7xl px-4 py-8">
+	<div class="mx-auto max-w-7xl px-4 py-24">
 		<button
 			class="mb-8 flex items-center text-blue-600 hover:text-blue-800"
 			on:click={() => history.back()}

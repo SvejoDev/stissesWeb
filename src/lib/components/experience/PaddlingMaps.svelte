@@ -26,9 +26,9 @@
 	// funktion för att hämta rätt kartfil
 	function getMapPath(): string {
 		if (mapType === 'short') {
-			return '/maps/kartaAngelholm.svg';
+			return '/maps/kartaAngelholm.png';
 		}
-		return mapLanguage === 'sv' ? '/maps/angeltoklipp_sv.svg' : '/maps/angeltoklipp_en.svg';
+		return mapLanguage === 'sv' ? '/maps/angeltoklipp_sv.png' : '/maps/angeltoklipp_en.png';
 	}
 </script>
 

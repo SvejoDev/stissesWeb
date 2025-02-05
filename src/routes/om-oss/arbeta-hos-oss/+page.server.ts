@@ -48,9 +48,12 @@ export const actions = {
 
             // skapa e-postmeddelandet
             const msg = {
-                to: 'johan.svensson@stisses.se',
+                to: [
+                    'johan.svensson@stisses.se',
+                    'info@stisses.se'
+                ],
                 from: {
-                    email: 'rekrytering@stisses.se',
+                    email: 'info@stisses.se',
                     name: 'Stisses Rekrytering'
                 },
                 replyTo: email as string,

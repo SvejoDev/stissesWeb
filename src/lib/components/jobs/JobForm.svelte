@@ -144,9 +144,6 @@
 					</svg>
 					<div>
 						<p class="font-medium text-green-700">{formStatus.message}</p>
-						<p class="mt-1 text-sm text-green-600">
-							Vi har skickat en bekräftelse till din e-post.
-						</p>
 					</div>
 				{:else}
 					<!-- error icon och meddelande -->

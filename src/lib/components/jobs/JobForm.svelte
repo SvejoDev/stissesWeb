@@ -2,6 +2,7 @@
 	import { enhance } from '$app/forms';
 	import * as m from '$lib/paraglide/messages';
 	import { jobRoles } from '$lib/data/jobRoles';
+	import type { ActionResult } from '@sveltejs/kit';
 
 	let files = {
 		cv: null as File | null,
@@ -10,9 +11,82 @@
 
 	// honeypot field
 	let website = '';
+	let formStatus = {
+		success: false,
+		message: ''
+	};
+
+	let personalNumber = '';
+	let personalNumberError = '';
+
+	// maximal filstorlek i megabytes
+	const MAX_FILE_SIZE = 10;
+	let fileError = '';
+
+	function handleSubmit() {
+		return async ({ result }: { result: ActionResult }) => {
+			if (result.type === 'success') {
+				formStatus = {
+					success: true,
+					message: 'Din ansökan har skickats!'
+				};
+			} else {
+				formStatus = {
+					success: false,
+					message: 'Ett fel uppstod. Försök igen senare.'
+				};
+			}
+		};
+	}
+
+	function validatePersonalNumber(value: string) {
+		const cleaned = value.replace(/[-\s]/g, '');
+
+		if (!/^\d{12}$/.test(cleaned)) {
+			personalNumberError = 'Personnumret måste vara 12 siffror i formatet YYYYMMDDXXXX';
+			return false;
+		}
+
+		personalNumberError = '';
+		return true;
+	}
+
+	function validateFileSize(file: File | null) {
+		if (!file) return true;
+
+		// konvertera bytes till MB
+		const fileSizeMB = file.size / (1024 * 1024);
+
+		if (fileSizeMB > MAX_FILE_SIZE) {
+			fileError = `Filen ${file.name} är för stor. Maximal filstorlek är ${MAX_FILE_SIZE}MB`;
+			return false;
+		}
+
+		return true;
+	}
+
+	function handleFileChange(event: Event, fileType: 'cv' | 'coverLetter') {
+		const input = event.target as HTMLInputElement;
+		const file = input.files?.[0];
+
+		if (file && !validateFileSize(file)) {
+			input.value = ''; // återställ input
+			return;
+		}
+
+		fileError = '';
+	}
 </script>
 
-<form method="POST" enctype="multipart/form-data" class="space-y-8" use:enhance>
+{#if formStatus.message}
+	<div
+		class={`mb-4 rounded-md p-4 ${formStatus.success ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}
+	>
+		{formStatus.message}
+	</div>
+{/if}
+
+<form method="POST" enctype="multipart/form-data" class="space-y-8" use:enhance={handleSubmit}>
 	<!-- Honeypot field - hidden from real users -->
 	<div class="hidden">
 		<input type="text" name="website" bind:value={website} tabindex="-1" autocomplete="off" />
@@ -85,11 +159,15 @@
 			type="text"
 			name="personalNumber"
 			id="personalNumber"
+			bind:value={personalNumber}
+			on:input={() => validatePersonalNumber(personalNumber)}
 			required
-			pattern="\d{12}"
-			title="YYYYMMDDXXXX"
+			placeholder="YYYYMMDDXXXX"
 			class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
 		/>
+		{#if personalNumberError}
+			<p class="mt-1 text-sm text-red-600">{personalNumberError}</p>
+		{/if}
 	</div>
 
 	<!-- Drivers License -->
@@ -165,6 +243,7 @@
 				id="cv"
 				accept=".pdf,.doc,.docx"
 				required
+				on:change={(e) => handleFileChange(e, 'cv')}
 				class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:rounded-full file:border-0 file:bg-green-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-green-700 hover:file:bg-green-100"
 			/>
 		</div>
@@ -178,9 +257,13 @@
 				id="coverLetter"
 				accept=".pdf,.doc,.docx"
 				required
+				on:change={(e) => handleFileChange(e, 'coverLetter')}
 				class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:rounded-full file:border-0 file:bg-green-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-green-700 hover:file:bg-green-100"
 			/>
 		</div>
+		{#if fileError}
+			<p class="text-sm text-red-600">{fileError}</p>
+		{/if}
 	</div>
 
 	<!-- Submit Button -->

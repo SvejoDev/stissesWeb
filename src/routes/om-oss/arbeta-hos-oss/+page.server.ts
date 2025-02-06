@@ -100,6 +100,10 @@ export const actions = {
                                         <td style="padding: 8px 0; color: #6B7280;">Telefon:</td>
                                         <td style="padding: 8px 0;">${phone}</td>
                                     </tr>
+                                    <tr>
+                                        <td style="padding: 8px 0; color: #6B7280;">Personnummer:</td>
+                                        <td style="padding: 8px 0;">${personalNumber}</td>
+                                    </tr>
                                 </table>
                             </div>
 

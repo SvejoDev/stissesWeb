@@ -23,7 +23,7 @@
 	let personalNumberError = '';
 
 	// maximal filstorlek i megabytes
-	const MAX_FILE_SIZE = 10;
+	const MAX_FILE_SIZE = 25; // 25MB, hälften av server-gränsen för säkerhetsmarginal
 	let fileError = '';
 
 	// lägg till en funktion för att scrolla till toppen av formuläret
@@ -97,7 +97,6 @@
 	function validateFileSize(file: File | null) {
 		if (!file) return true;
 
-		// konvertera bytes till MB
 		const fileSizeMB = file.size / (1024 * 1024);
 
 		if (fileSizeMB > MAX_FILE_SIZE) {

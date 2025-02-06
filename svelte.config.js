@@ -15,7 +15,8 @@ const config = {
 			// Anpassar för Node.js-miljö
 			out: 'build',
 			precompress: false,
-			envPrefix: 'APP_'
+			envPrefix: 'APP_',
+			maxPayloadSize: 50 * 1024 * 1024 // 50MB i bytes
 		})
 	}
 };

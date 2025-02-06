@@ -50,16 +50,8 @@
 
 	function handleSubmit() {
 		return async ({ result }: { result: ActionResult }) => {
-			if (isSubmitting) return;
-
-			// sätt isSubmitting till true omedelbart när formuläret skickas
+			// sätt isSubmitting direkt när formuläret skickas
 			isSubmitting = true;
-
-			// inaktivera submit-knappen genom att sätta disabled attributet
-			const submitButton = document.querySelector('button[type="submit"]');
-			if (submitButton) {
-				submitButton.setAttribute('disabled', 'true');
-			}
 
 			try {
 				if (result.type === 'success') {
@@ -77,14 +69,15 @@
 						showForm: true
 					};
 				}
+			} catch (error) {
+				formStatus = {
+					success: false,
+					message: 'Ett fel uppstod. Försök igen senare.',
+					showForm: true
+				};
 			} finally {
-				// behåll isSubmitting som true om det lyckades
-				if (result.type !== 'success') {
-					isSubmitting = false;
-					if (submitButton) {
-						submitButton.removeAttribute('disabled');
-					}
-				}
+				// sätt alltid isSubmitting till false när processen är klar
+				isSubmitting = false;
 			}
 		};
 	}
@@ -203,7 +196,15 @@
 	{/if}
 
 	{#if formStatus.showForm}
-		<form method="POST" enctype="multipart/form-data" class="space-y-8" use:enhance={handleSubmit}>
+		<form
+			method="POST"
+			enctype="multipart/form-data"
+			class="space-y-8"
+			on:submit={() => {
+				isSubmitting = true;
+			}}
+			use:enhance={handleSubmit}
+		>
 			<!-- Honeypot field - hidden from real users -->
 			<div class="hidden">
 				<input type="text" name="website" bind:value={website} tabindex="-1" autocomplete="off" />

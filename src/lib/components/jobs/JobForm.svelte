@@ -52,10 +52,7 @@
 		return async ({ result }: { result: ActionResult }) => {
 			if (isSubmitting) return;
 
-			// sätt isSubmitting till true omedelbart när formuläret skickas
 			isSubmitting = true;
-
-			// inaktivera submit-knappen genom att sätta disabled attributet
 			const submitButton = document.querySelector('button[type="submit"]');
 			if (submitButton) {
 				submitButton.setAttribute('disabled', 'true');
@@ -63,6 +60,7 @@
 
 			try {
 				if (result.type === 'success') {
+					isSubmitting = false;
 					formStatus = {
 						success: true,
 						message: 'Din ansökan har skickats! Vi återkommer så snart som möjligt.',
@@ -76,14 +74,20 @@
 						message: 'Ett fel uppstod. Försök igen senare.',
 						showForm: true
 					};
-				}
-			} finally {
-				// behåll isSubmitting som true om det lyckades
-				if (result.type !== 'success') {
 					isSubmitting = false;
 					if (submitButton) {
 						submitButton.removeAttribute('disabled');
 					}
+				}
+			} catch (error) {
+				formStatus = {
+					success: false,
+					message: 'Ett fel uppstod. Försök igen senare.',
+					showForm: true
+				};
+				isSubmitting = false;
+				if (submitButton) {
+					submitButton.removeAttribute('disabled');
 				}
 			}
 		};

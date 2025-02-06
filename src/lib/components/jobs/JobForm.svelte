@@ -50,17 +50,11 @@
 
 	function handleSubmit() {
 		return async ({ result }: { result: ActionResult }) => {
-			if (isSubmitting) return;
-
+			// sätt isSubmitting direkt när formuläret skickas
 			isSubmitting = true;
-			const submitButton = document.querySelector('button[type="submit"]');
-			if (submitButton) {
-				submitButton.setAttribute('disabled', 'true');
-			}
 
 			try {
 				if (result.type === 'success') {
-					isSubmitting = false;
 					formStatus = {
 						success: true,
 						message: 'Din ansökan har skickats! Vi återkommer så snart som möjligt.',
@@ -74,10 +68,6 @@
 						message: 'Ett fel uppstod. Försök igen senare.',
 						showForm: true
 					};
-					isSubmitting = false;
-					if (submitButton) {
-						submitButton.removeAttribute('disabled');
-					}
 				}
 			} catch (error) {
 				formStatus = {
@@ -85,10 +75,9 @@
 					message: 'Ett fel uppstod. Försök igen senare.',
 					showForm: true
 				};
+			} finally {
+				// sätt alltid isSubmitting till false när processen är klar
 				isSubmitting = false;
-				if (submitButton) {
-					submitButton.removeAttribute('disabled');
-				}
 			}
 		};
 	}
@@ -207,7 +196,15 @@
 	{/if}
 
 	{#if formStatus.showForm}
-		<form method="POST" enctype="multipart/form-data" class="space-y-8" use:enhance={handleSubmit}>
+		<form
+			method="POST"
+			enctype="multipart/form-data"
+			class="space-y-8"
+			on:submit={() => {
+				isSubmitting = true;
+			}}
+			use:enhance={handleSubmit}
+		>
 			<!-- Honeypot field - hidden from real users -->
 			<div class="hidden">
 				<input type="text" name="website" bind:value={website} tabindex="-1" autocomplete="off" />

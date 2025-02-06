@@ -51,7 +51,15 @@
 	function handleSubmit() {
 		return async ({ result }: { result: ActionResult }) => {
 			if (isSubmitting) return;
+
+			// sätt isSubmitting till true omedelbart när formuläret skickas
 			isSubmitting = true;
+
+			// inaktivera submit-knappen genom att sätta disabled attributet
+			const submitButton = document.querySelector('button[type="submit"]');
+			if (submitButton) {
+				submitButton.setAttribute('disabled', 'true');
+			}
 
 			try {
 				if (result.type === 'success') {
@@ -60,7 +68,6 @@
 						message: 'Din ansökan har skickats! Vi återkommer så snart som möjligt.',
 						showForm: false
 					};
-					// vänta tills DOM har uppdaterats
 					await tick();
 					scrollToMessage();
 				} else {
@@ -71,7 +78,13 @@
 					};
 				}
 			} finally {
-				isSubmitting = false;
+				// behåll isSubmitting som true om det lyckades
+				if (result.type !== 'success') {
+					isSubmitting = false;
+					if (submitButton) {
+						submitButton.removeAttribute('disabled');
+					}
+				}
 			}
 		};
 	}
@@ -346,7 +359,6 @@
 						name="cv"
 						id="cv"
 						accept=".pdf,.doc,.docx"
-						required
 						on:change={(e) => handleFileChange(e, 'cv')}
 						class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:rounded-full file:border-0 file:bg-green-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-green-700 hover:file:bg-green-100"
 					/>
@@ -360,7 +372,6 @@
 						name="coverLetter"
 						id="coverLetter"
 						accept=".pdf,.doc,.docx"
-						required
 						on:change={(e) => handleFileChange(e, 'coverLetter')}
 						class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:rounded-full file:border-0 file:bg-green-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-green-700 hover:file:bg-green-100"
 					/>
@@ -368,6 +379,19 @@
 				{#if fileError}
 					<p class="text-sm text-red-600">{fileError}</p>
 				{/if}
+			</div>
+
+			<!-- Additional Comments -->
+			<div>
+				<label for="comments" class="block text-sm font-medium text-gray-700">
+					Övriga kommentarer
+				</label>
+				<textarea
+					name="comments"
+					id="comments"
+					rows="4"
+					class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+				></textarea>
 			</div>
 
 			<!-- Submit Button -->

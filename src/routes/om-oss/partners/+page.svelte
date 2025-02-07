@@ -11,13 +11,13 @@
 
 	const partners = [
 		{
-			name: m.kullamust_title,
+			name: 'Kullamust',
 			description: m.kullamust_description,
 			image: '/images/kullamust.jpg',
 			url: 'https://kullamust.se/'
 		},
 		{
-			name: m.angelholm_title,
+			name: 'Ängelholms Näringsliv',
 			description: m.angelholm_description,
 			image: '/images/angelholm.jpg',
 			url: 'https://naringsliv.engelholm.com/'
@@ -45,10 +45,10 @@
 						<div
 							class="overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:-translate-y-1"
 						>
-							<img src={partner.image} alt={partner.name()} class="h-64 w-full object-cover" />
+							<img src={partner.image} alt={partner.name} class="h-64 w-full object-cover" />
 							<div class="p-6">
 								<h2 class="mb-4 text-2xl font-bold text-gray-900">
-									{partner.name()}
+									{partner.name}
 								</h2>
 								<p class="mb-6 text-gray-600">
 									{partner.description()}

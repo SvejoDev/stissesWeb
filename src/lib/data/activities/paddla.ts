@@ -55,7 +55,7 @@ export const activities: { paddla: Activity } = {
             {
                 title: () => m.experience_adventure_title(),
                 subTitle: () => m.experience_adventure_subtitle(),
-                description: () => m.experience_adventure_description(),
+                description: () => m.stale_sound_porpoise_express(),
                 image: '/images/spannande-paddling.jpg',
                 duration: () => m.experience_adventure_duration(),
                 difficulty: 'medium',
@@ -104,10 +104,10 @@ export const activities: { paddla: Activity } = {
             {
                 title: () => m.experience_challenging_title(),
                 subTitle: () => m.experience_challenging_subtitle(),
-                description: () => m.experience_challenging_description(),
+                description: () => m.proud_raw_skate_yell(),
                 image: '/images/utmanande-paddling.jpg',
                 duration: () => m.experience_challenging_duration(),
-                difficulty: 'hard',
+                difficulty: 'medium',
                 experienceType: 'regular',
                 startLocation: () => m.common_location_varies(),
                 endLocation: "Stisses",

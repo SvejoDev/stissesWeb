@@ -161,7 +161,7 @@ export const activities: { paddla: Activity } = {
                 bookingRules: bookingRulesPrivate,
                 longDescription: () => m.experience_challenging_long_description()
             },
-            {
+            /*{
                 title: () => m.experience_night_title(),
                 subTitle: () => m.experience_night_subtitle(),
                 description: () => m.experience_night_description(),
@@ -186,8 +186,8 @@ export const activities: { paddla: Activity } = {
                 },
                 bookingRules: bookingRulesPrivate,
                 longDescription: () => m.experience_night_long_description()
-            },
-            {
+            }, */
+            /*{
                 title: () => m.experience_advanced_title(),
                 subTitle: () => m.experience_advanced_subtitle(),
                 description: () => m.experience_advanced_description(),
@@ -224,7 +224,7 @@ export const activities: { paddla: Activity } = {
                 },
                 bookingRules: bookingRulesPrivate,
                 longDescription: () => m.experience_advanced_long_description()
-            },
+            }, */
             {
                 title: () => m.experience_corporate_title(),
                 subTitle: () => m.experience_corporate_subtitle(),

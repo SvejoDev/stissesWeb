@@ -7,6 +7,9 @@ declare global {
 			paraglide: ParaglideLocals<AvailableLanguageTag>
 		}
 	}
+
+	// lägg till denna rad för google analytics
+	function gtag(...args: any[]): void;
 }
 
 export { };

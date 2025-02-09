@@ -4,10 +4,13 @@
 	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import '../app.css';
+	import Analytics from '$lib/components/Analytics.svelte';
+	import CookieConsent from '$lib/components/CookieConsent.svelte';
 	let { children } = $props();
 </script>
 
 <ParaglideJS {i18n}>
+	<Analytics />
 	<div class="flex min-h-screen flex-col">
 		<Navbar />
 		<main class="flex-1">
@@ -15,4 +18,5 @@
 		</main>
 		<Footer />
 	</div>
+	<CookieConsent />
 </ParaglideJS>

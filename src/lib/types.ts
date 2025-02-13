@@ -29,6 +29,7 @@ export interface Experience {
     endLocation: string;
     includedItems: (string | (() => string))[];
     requiredExperience: string | (() => string);
+    cardPrice?: string | (() => string);
     price: string | (() => string) | PriceTable;
     maxParticipants?: {
         adults?: number;

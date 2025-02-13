@@ -70,6 +70,7 @@ export const activities: { paddla: Activity } = {
                     () => m.common_equipment_extra_seats()
                 ],
                 requiredExperience: () => m.experience_adventure_required(),
+                cardPrice: () => m.arable_pretty_worm_honor(),
                 price: {
                     headers: [
                         () => m.table_header_start(),
@@ -119,6 +120,7 @@ export const activities: { paddla: Activity } = {
                     () => m.common_equipment_extra_seats()
                 ],
                 requiredExperience: () => m.experience_challenging_required(),
+                cardPrice: () => m.swift_giant_rabbit_launch(),
                 price: {
                     headers: [
                         () => m.table_header_start(),
@@ -242,12 +244,13 @@ export const activities: { paddla: Activity } = {
                     () => m.common_equipment_safety()
                 ],
                 requiredExperience: () => m.experience_corporate_required(),
+                cardPrice: () => m.steep_born_lemur_ripple(),
                 price: {
                     headers: [
                         () => m.table_header_start(),
                         () => m.table_header_goal(),
                         () => m.table_header_paddle_time(),
-                        () => m.table_header_price()
+                        () => m.glad_good_mink_mend()
                     ],
                     rows: [
                         {
@@ -313,12 +316,14 @@ export const activities: { paddla: Activity } = {
                     () => m.common_equipment_safety()
                 ],
                 requiredExperience: () => m.experience_school_required(),
+                cardPrice: () => m.short_pretty_dragonfly_tap(),
+
                 price: {
                     headers: [
                         () => m.table_header_start(),
                         () => m.table_header_goal(),
                         () => m.table_header_duration(),
-                        () => m.table_header_price()
+                        () => m.glad_good_mink_mend()
                     ],
                     rows: [
                         {

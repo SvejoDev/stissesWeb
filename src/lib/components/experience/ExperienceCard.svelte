@@ -80,11 +80,13 @@
 
 		<div class="mt-4 flex items-center justify-between">
 			<div class="text-lg font-semibold">
-				{typeof experience.price === 'function'
-					? getValue(experience.price)
-					: typeof experience.price === 'string'
+				{experience.cardPrice
+					? getValue(experience.cardPrice)
+					: typeof experience.price === 'function'
 						? getValue(experience.price)
-						: `${m.price_from()} ${experience.price.rows[0].price} kr`}
+						: typeof experience.price === 'string'
+							? getValue(experience.price)
+							: `${m.price_from()} ${experience.price.rows[0].price} kr`}
 			</div>
 			<a
 				href={`?experience=${getValue(experience.title).toLowerCase().replace(/\s+/g, '-')}`}

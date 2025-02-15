@@ -9,6 +9,22 @@ export default defineConfig({
 			outdir: "./src/lib/paraglide",
 		}),
 		sveltekit(),
-
 	],
+	server: {
+		port: 3000,
+		host: true,
+		strictPort: true,
+		proxy: {
+			'/': {
+				target: 'https://stisses.se',
+				changeOrigin: true,
+				secure: false
+			}
+		}
+	},
+	preview: {
+		port: 3000,
+		host: true,
+		strictPort: true
+	}
 })

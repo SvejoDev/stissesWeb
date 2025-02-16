@@ -20,6 +20,10 @@ export default defineConfig({
 				changeOrigin: true,
 				secure: false
 			}
+		},
+		hmr: {
+			protocol: 'wss',
+			host: 'stisses.se'
 		}
 	},
 	preview: {

@@ -1,23 +1,15 @@
 import type { Activity } from '$lib/types';
 
 const bookingRulesPrivate = [
-    () => m.booking_rules_private_1(),
-    () => m.booking_rules_private_2(),
-    () => m.booking_rules_private_3(),
-    () => m.booking_rules_private_4()
+    () => m.formal_happy_goose_talk()
+
 ];
 const bookingRulesCorporate = [
-    () => m.booking_rules_corporate_1(),
-    () => m.booking_rules_corporate_2(),
-    () => m.booking_rules_corporate_3(),
-    () => m.booking_rules_corporate_4()
+    () => m.formal_happy_goose_talk()
 ];
 const bookingRulesSchool = [
-    () => m.booking_rules_school_1(),
-    () => m.booking_rules_school_2(),
-    () => m.booking_rules_school_3(),
-    () => m.booking_rules_school_4(),
-    () => m.booking_rules_school_5()
+    () => m.formal_happy_goose_talk()
+
 ];
 import * as m from '$lib/paraglide/messages';
 

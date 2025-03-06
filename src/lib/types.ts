@@ -47,6 +47,7 @@ export interface Experience {
     };
     longDescription: string | (() => string);
     bookingRules: string[] | (() => string)[] | (() => string[]);
+    bookingLink?: string;
 };
 
 export interface PriceTable {

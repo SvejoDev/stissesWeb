@@ -1,23 +1,15 @@
 import type { Activity } from '$lib/types';
 
 const bookingRulesPrivate = [
-    () => m.booking_rules_private_1(),
-    () => m.booking_rules_private_2(),
-    () => m.booking_rules_private_3(),
-    () => m.booking_rules_private_4()
+    () => m.formal_happy_goose_talk()
+
 ];
 const bookingRulesCorporate = [
-    () => m.booking_rules_corporate_1(),
-    () => m.booking_rules_corporate_2(),
-    () => m.booking_rules_corporate_3(),
-    () => m.booking_rules_corporate_4()
+    () => m.formal_happy_goose_talk()
 ];
 const bookingRulesSchool = [
-    () => m.booking_rules_school_1(),
-    () => m.booking_rules_school_2(),
-    () => m.booking_rules_school_3(),
-    () => m.booking_rules_school_4(),
-    () => m.booking_rules_school_5()
+    () => m.formal_happy_goose_talk()
+
 ];
 import * as m from '$lib/paraglide/messages';
 
@@ -50,6 +42,7 @@ export const activities: { paddla: Activity } = {
                     children: 3
                 },
                 bookingRules: bookingRulesPrivate,
+                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=6932",
                 longDescription: () => m.experience_calm_long_description()
             },
             {
@@ -100,6 +93,7 @@ export const activities: { paddla: Activity } = {
                     ]
                 },
                 bookingRules: bookingRulesPrivate,
+                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=7297&products=7294&products=7280",
                 longDescription: () => m.experience_adventure_long_description()
             },
             {
@@ -161,6 +155,7 @@ export const activities: { paddla: Activity } = {
                     ]
                 },
                 bookingRules: bookingRulesPrivate,
+                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=9279&products=9280&products=7287",
                 longDescription: () => m.experience_challenging_long_description()
             },
             /*{
@@ -297,6 +292,7 @@ export const activities: { paddla: Activity } = {
                     }
                 },
                 bookingRules: bookingRulesCorporate,
+                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=7288",
                 longDescription: () => m.experience_corporate_long_description()
             },
             {
@@ -351,6 +347,7 @@ export const activities: { paddla: Activity } = {
                     perInstructor: 8
                 },
                 bookingRules: bookingRulesSchool,
+                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=7298",
                 longDescription: () => m.experience_school_long_description()
             }
         ]

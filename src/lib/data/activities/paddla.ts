@@ -42,6 +42,7 @@ export const activities: { paddla: Activity } = {
                     children: 3
                 },
                 bookingRules: bookingRulesPrivate,
+                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=6932",
                 longDescription: () => m.experience_calm_long_description()
             },
             {
@@ -92,6 +93,7 @@ export const activities: { paddla: Activity } = {
                     ]
                 },
                 bookingRules: bookingRulesPrivate,
+                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=7297&products=7294&products=7280",
                 longDescription: () => m.experience_adventure_long_description()
             },
             {
@@ -153,6 +155,7 @@ export const activities: { paddla: Activity } = {
                     ]
                 },
                 bookingRules: bookingRulesPrivate,
+                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=9279&products=9280&products=7287",
                 longDescription: () => m.experience_challenging_long_description()
             },
             /*{
@@ -289,6 +292,7 @@ export const activities: { paddla: Activity } = {
                     }
                 },
                 bookingRules: bookingRulesCorporate,
+                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=7288",
                 longDescription: () => m.experience_corporate_long_description()
             },
             {
@@ -343,6 +347,7 @@ export const activities: { paddla: Activity } = {
                     perInstructor: 8
                 },
                 bookingRules: bookingRulesSchool,
+                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=7298",
                 longDescription: () => m.experience_school_long_description()
             }
         ]

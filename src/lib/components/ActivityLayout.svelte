@@ -4,6 +4,7 @@
 	import ExperienceDetails from '$lib/components/experience/ExperienceDetails.svelte';
 	import { page } from '$app/stores';
 	import ComingSoon from '$lib/components/ComingSoon.svelte';
+	import BookingButton from '$lib/components/BookingButton.svelte';
 	import * as m from '$lib/paraglide/messages';
 
 	export let activity: Activity;
@@ -57,6 +58,9 @@
 		</button>
 
 		<ExperienceDetails experience={currentExperience} />
+		{#if currentExperience.bookingLink}
+			<BookingButton bookingLink={currentExperience.bookingLink} sticky={true} />
+		{/if}
 	</div>
 {:else}
 	<!-- Hero och översikt -->

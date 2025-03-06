@@ -2,6 +2,7 @@
 	import type { Experience } from '$lib/types';
 	import { Badge } from '$lib/components/ui/badge';
 	import * as m from '$lib/paraglide/messages';
+	import { page } from '$app/stores';
 
 	export let experience: Experience;
 
@@ -47,6 +48,11 @@
 				return m.common_difficulty_easy();
 		}
 	}
+
+	function getExperienceUrl(): string {
+		const experienceTitle = getValue(experience.title).toLowerCase().replace(/\s+/g, '-');
+		return `${$page.url.pathname}?experience=${experienceTitle}`;
+	}
 </script>
 
 <div
@@ -88,12 +94,14 @@
 							? getValue(experience.price)
 							: `${m.price_from()} ${experience.price.rows[0].price} kr`}
 			</div>
-			<a
-				href={`?experience=${getValue(experience.title).toLowerCase().replace(/\s+/g, '-')}`}
-				class="rounded bg-blue-600 px-4 py-2 text-white transition-colors duration-300 hover:bg-blue-700"
-			>
-				{m.such_awake_shad_inspire()}
-			</a>
+			<div class="flex gap-4">
+				<a
+					href={getExperienceUrl()}
+					class="rounded bg-blue-600 px-4 py-2 text-white transition-colors duration-300 hover:bg-blue-700"
+				>
+					{m.such_awake_shad_inspire()}
+				</a>
+			</div>
 		</div>
 	</div>
 </div>

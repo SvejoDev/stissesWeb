@@ -51,7 +51,9 @@
 
 	function getExperienceUrl(): string {
 		const experienceTitle = getValue(experience.title).toLowerCase().replace(/\s+/g, '-');
-		return `${$page.url.pathname}?experience=${experienceTitle}`;
+		const url = new URL($page.url);
+		url.searchParams.set('experience', experienceTitle);
+		return url.search;
 	}
 </script>
 

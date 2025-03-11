@@ -155,7 +155,7 @@ export const activities: { paddla: Activity } = {
                     ]
                 },
                 bookingRules: bookingRulesPrivate,
-                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=9279&products=9280&products=7287",
+                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=7287&products=9280&products=9279",
                 longDescription: () => m.experience_challenging_long_description()
             },
             /*{

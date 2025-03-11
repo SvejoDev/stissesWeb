@@ -298,5 +298,6 @@
 	"maps_overview_alt": "Oversigtskort over padleruter",
 	"maps_detailed_alt": "Detaljeret kort over padleruter",
 	"maps_overview_description": "oversigtskort, der viser alle mulige padleruter og udgangspunkter",
-	"maps_detailed_description": "detaljeret kort med dybdeoplysninger, vartegn og vigtige punkter langs ruten"
+	"maps_detailed_description": "detaljeret kort med dybdeoplysninger, vartegn og vigtige punkter langs ruten",
+	"polite_sour_mongoose_bump": ""
 }

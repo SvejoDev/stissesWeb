@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import * as m from '$lib/paraglide/messages';
-	import JobForm from '$lib/components/jobs/JobForm.svelte';
 	import JobRole from '$lib/components/jobs/JobRole.svelte';
 	import { jobRoles } from '$lib/data/jobRoles';
 
@@ -39,9 +38,13 @@
 				</div>
 			</section>
 
-			<!-- Application Form Section -->
+			<!-- Application Info Section -->
 			<section in:fly={{ y: 50, duration: 800, delay: 1000 }} class="mb-24">
-				<JobForm />
+				<p class="text-lg text-gray-600">
+					Är du intresserad av något av ovanstående skickar du din ansökan till vår VD
+					gunnar.svensson@stisses.se . Vi behandlar ansökningar löpande men sista ansökningsdag är
+					lördag 15 mars. Ange i din ansökan vilket av ovanstående jobb du söker.
+				</p>
 			</section>
 		</div>
 	{/if}

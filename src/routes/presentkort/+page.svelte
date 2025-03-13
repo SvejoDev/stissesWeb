@@ -73,7 +73,7 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				Köp presentkort
+				{m.low_tidy_shell_dust()}
 			</a>
 		</div>
 	</div>

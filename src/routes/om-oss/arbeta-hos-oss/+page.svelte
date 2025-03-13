@@ -41,9 +41,7 @@
 			<!-- Application Info Section -->
 			<section in:fly={{ y: 50, duration: 800, delay: 1000 }} class="mb-24">
 				<p class="text-lg text-gray-600">
-					Är du intresserad av något av ovanstående skickar du din ansökan till vår VD
-					gunnar.svensson@stisses.se . Vi behandlar ansökningar löpande men sista ansökningsdag är
-					lördag 15 mars. Ange i din ansökan vilket av ovanstående jobb du söker.
+					{m.ok_zesty_dragonfly_pray()}
 				</p>
 			</section>
 		</div>

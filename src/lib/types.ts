@@ -15,6 +15,7 @@ export interface JobRole {
     id: string;
     title: () => string;
     description: () => string;
+    filled: boolean;
 }
 
 export interface Experience {

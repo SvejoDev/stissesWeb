@@ -41,7 +41,7 @@
 			<!-- Application Info Section -->
 			<section in:fly={{ y: 50, duration: 800, delay: 1000 }} class="mb-24">
 				<p class="text-lg text-gray-600">
-					{m.ok_zesty_dragonfly_pray()}
+					{m.sunny_bald_bison_fear()}
 				</p>
 			</section>
 		</div>

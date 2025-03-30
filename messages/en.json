@@ -292,7 +292,7 @@
 	"just_plain_bison_yell": "Our customers like to book their paddling well in advance to ensure availability. We think that's good and it makes our planning with staff easier. We know and understand that things don't always go as planned. That's why you can always (at least 6 hours before the start) rebook to another date with us. If you purchase a \"rebooking option\" for 20 SEK in connection with your booking, you will receive a link in your booking confirmation where you can make your rebooking. A simple and popular option. That's how it works at Stisses.",
 	"flaky_awful_osprey_twirl": "Our customers like to book their kayaking well in advance to ensure availability. We think that's good and it makes our planning with staff easier. We know and understand that things don't always go as planned. That's why you can always (at least 6 hours before the start) rebook to another date with us. If you purchase a \"rebooking option\" for 20 SEK in connection with your booking, you will receive a link in your booking confirmation where you can make your rebooking. A simple and popular option. That's how it works at Stisses.",
 	"formal_happy_goose_talk": "Our customers like to book their kayaking well in advance to ensure availability. We think that's a good thing and it makes our planning with staff easier. We know and understand that things don't always go as planned. That's why you can always (at least 6 hours before the start) rebook to another date with us. If you purchase a \"rebooking option\" for 20 SEK when booking, you will receive a link in your booking confirmation where you can make your rebooking. A simple and popular option. That's how it works at Stisses.",
-	"polite_sour_mongoose_bump": "",
+	"polite_sour_mongoose_bump": "Book now",
 	"ok_zesty_dragonfly_pray": "If you are interested in any of the above, please send your application to our CEO.\ngunnar.svensson@stisses.se . We process applications on an ongoing basis but the application deadline is\nSaturday, March 15. Indicate in your application which of the above jobs you are applying for.",
 	"low_tidy_shell_dust": "Buy gift cards",
 	"maps_title": "Maps",
@@ -301,5 +301,8 @@
 	"maps_overview_alt": "Overview map of paddling routes",
 	"maps_detailed_alt": "Detailed map of paddling routes",
 	"maps_overview_description": "overview map showing all possible paddling routes and starting points",
-	"maps_detailed_description": "detailed map with depth information, landmarks and important points along the route"
+	"maps_detailed_description": "detailed map with depth information, landmarks and important points along the route",
+	"less_actual_bird_pat": "Position filled",
+	"icy_awful_owl_win": "If you are interested in any of the above, please send your application to our CEO gunnar.svensson@stisses.se. We process applications on an ongoing basis, but the deadline for applications is Saturday, March 15. Please indicate in your application which of the above jobs you are applying for.",
+	"sunny_bald_bison_fear": "If you are interested in any of the above, please send your application to our CEO gunnar.svensson@stisses.se. We process applications on an ongoing basis, but the deadline for applications is Saturday, April 10th. Please indicate in your application which of the above jobs you are applying for."
 }

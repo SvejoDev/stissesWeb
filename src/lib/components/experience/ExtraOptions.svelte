@@ -20,7 +20,7 @@
 					<div class="rounded-lg bg-white p-4 shadow">
 						<div class="mb-2 flex items-start justify-between">
 							<h3 class="font-semibold">{getValue(option.title)}</h3>
-							<Badge variant="secondary">{option.price} kr/person exklusive moms</Badge>
+							<Badge variant="secondary">{option.price} {m.spare_grassy_bird_lend()}</Badge>
 						</div>
 						<p class="text-sm text-gray-600">{getValue(option.description)}</p>
 					</div>
@@ -36,7 +36,7 @@
 				<div class="mb-4 flex items-start justify-between">
 					<h3 class="font-semibold">{m.civil_silly_hare_offer()}</h3>
 					<Badge variant="secondary"
-						>{experience.extras.teambuilding.price} kr/person exklusive moms</Badge
+						>{experience.extras.teambuilding.price} {m.spare_grassy_bird_lend()}</Badge
 					>
 				</div>
 				<p class="text-gray-600">{getValue(experience.extras.teambuilding.description)}</p>

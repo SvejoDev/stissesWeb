@@ -288,7 +288,19 @@ export const activities: { paddla: Activity } = {
                     ],
                     teambuilding: {
                         price: 200,
-                        description: () => m.extra_teambuilding_description()
+                        description: () => m.extra_teambuilding_description(),
+                        videos: [
+                            {
+                                id: "video1",
+                                title: () => m.proof_slimy_wolf_imagine(),
+                                videoUrl: "https://www.youtube-nocookie.com/embed/hMiPRU3ht-s"
+                            },
+                            {
+                                id: "video2",
+                                title: () => m.zany_smart_starfish_enrich(),
+                                videoUrl: "https://www.youtube-nocookie.com/embed/GB0VvCWpzi8"
+                            }
+                        ]
                     }
                 },
                 bookingRules: bookingRulesCorporate,

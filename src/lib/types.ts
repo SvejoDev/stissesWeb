@@ -71,7 +71,16 @@ export interface FoodOption {
     price: number;
 }
 
+export interface TeamBuildingVideo {
+    id: string;
+    title: string | (() => string);
+    description?: string | (() => string);
+    videoUrl: string;
+}
+
 export interface TeamBuilding {
     price: number;
     description: string | (() => string);
+    videoUrl?: string;
+    videos?: TeamBuildingVideo[];
 }

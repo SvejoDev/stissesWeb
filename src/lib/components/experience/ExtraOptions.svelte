@@ -3,7 +3,7 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import * as m from '$lib/paraglide/messages';
 
-	export let experience: Experience;
+	let { experience }: { experience: Experience } = $props();
 
 	// hjälpfunktion för att hantera både strängar och funktioner som returnerar strängar
 	function getValue(value: string | (() => string)): string {

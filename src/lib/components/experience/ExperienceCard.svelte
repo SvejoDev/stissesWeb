@@ -4,7 +4,7 @@
 	import * as m from '$lib/paraglide/messages';
 	import { page } from '$app/stores';
 
-	export let experience: Experience;
+	let { experience }: { experience: Experience } = $props();
 
 	function getValue(value: string | (() => string)): string {
 		return typeof value === 'function' ? value() : value;

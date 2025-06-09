@@ -17,6 +17,7 @@
 
 	let isAboutUsOpen = $state(false);
 	let isMobileMenuOpen = $state(false);
+	let isKartorOpen = $state(false);
 
 	$effect(() => {
 		// när url:en ändras, stäng mobilmenyn
@@ -26,10 +27,14 @@
 
 	// Stäng dropdown när man klickar utanför
 	let aboutUsRef: HTMLDivElement;
+	let kartorRef: HTMLDivElement;
 	onMount(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (aboutUsRef && !aboutUsRef.contains(event.target as Node)) {
 				isAboutUsOpen = false;
+			}
+			if (kartorRef && !kartorRef.contains(event.target as Node)) {
+				isKartorOpen = false;
 			}
 		};
 		document.addEventListener('click', handleClickOutside);
@@ -45,6 +50,8 @@
 		{ href: '/vandra', label: m.wacky_mad_raven_gulp() },
 		{ href: '/presentkort', label: m.round_simple_skunk_hunt() }
 	];
+
+	const kartorItems = [{ href: '/kartor', label: m.polite_legal_panther_fold() }];
 
 	const aboutUsItems = [
 		{ href: '/om-oss', label: m.sleek_day_martin_reside() },
@@ -79,9 +86,49 @@
 								{item.label}
 							</a>
 						{/each}
+						<div class="relative" bind:this={kartorRef}>
+							<button
+								onclick={(e) => {
+									e.stopPropagation();
+									isKartorOpen = !isKartorOpen;
+								}}
+								class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900 focus:outline-none"
+							>
+								{m.maps_section_title()}
+								<svg
+									class="ml-1 inline-block h-4 w-4 transition-transform duration-200 ease-in-out"
+									class:rotate-180={isKartorOpen}
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+										clip-rule="evenodd"
+									/>
+								</svg>
+							</button>
+							{#if isKartorOpen}
+								<div
+									class="absolute left-0 z-50 mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+								>
+									{#each kartorItems as item}
+										<a
+											href={item.href}
+											class="block rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-900"
+											>{item.label}</a
+										>
+									{/each}
+								</div>
+							{/if}
+						</div>
 						<div class="relative" bind:this={aboutUsRef}>
 							<button
-								on:click|stopPropagation={() => (isAboutUsOpen = !isAboutUsOpen)}
+								onclick={(e) => {
+									e.stopPropagation();
+									isAboutUsOpen = !isAboutUsOpen;
+								}}
 								class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900 focus:outline-none"
 							>
 								{m.sleek_day_martin_reside()}
@@ -126,7 +173,7 @@
 				<div class="ml-4 flex items-center md:ml-6">
 					{#each languages as lang}
 						<button
-							on:click={() => switchLanguage(lang.code as AvailableLanguageTag)}
+							onclick={() => switchLanguage(lang.code as AvailableLanguageTag)}
 							class="ml-3 rounded-full p-1 transition duration-150 ease-in-out hover:bg-green-100"
 						>
 							<img src={lang.flag} alt={lang.name} class="h-6 w-6 rounded-full object-cover" />
@@ -136,7 +183,7 @@
 			</div>
 			<div class="-mr-2 flex md:hidden">
 				<button
-					on:click={() => (isMobileMenuOpen = !isMobileMenuOpen)}
+					onclick={() => (isMobileMenuOpen = !isMobileMenuOpen)}
 					type="button"
 					class="inline-flex items-center justify-center rounded-md bg-green-50 p-2 text-gray-700 hover:bg-green-100 hover:text-green-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-50"
 				>
@@ -171,7 +218,44 @@
 					>
 				{/each}
 				<button
-					on:click|stopPropagation={() => (isAboutUsOpen = !isAboutUsOpen)}
+					onclick={(e) => {
+						e.stopPropagation();
+						isKartorOpen = !isKartorOpen;
+					}}
+					class="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-base font-medium text-gray-700 hover:bg-green-100 hover:text-green-900"
+				>
+					<span>{m.maps_section_title()}</span>
+					<svg
+						class="h-5 w-5 transition-transform duration-200 ease-in-out"
+						class:rotate-180={isKartorOpen}
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 20 20"
+						fill="currentColor"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+							clip-rule="evenodd"
+						/>
+					</svg>
+				</button>
+				{#if isKartorOpen}
+					<div class="mt-1 space-y-1 rounded-md bg-green-50/50 px-2">
+						{#each kartorItems as item}
+							<a
+								href={item.href}
+								class="block rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors duration-150 hover:bg-green-100 hover:text-green-900"
+							>
+								{item.label}
+							</a>
+						{/each}
+					</div>
+				{/if}
+				<button
+					onclick={(e) => {
+						e.stopPropagation();
+						isAboutUsOpen = !isAboutUsOpen;
+					}}
 					class="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-base font-medium text-gray-700 hover:bg-green-100 hover:text-green-900"
 				>
 					<span>{m.sleek_day_martin_reside()}</span>
@@ -211,7 +295,7 @@
 				<div class="flex items-center px-5">
 					{#each languages as lang}
 						<button
-							on:click={() => switchLanguage(lang.code as AvailableLanguageTag)}
+							onclick={() => switchLanguage(lang.code as AvailableLanguageTag)}
 							class="ml-3 rounded-full p-1 transition duration-150 ease-in-out hover:bg-green-100"
 						>
 							<img src={lang.flag} alt={lang.name} class="h-6 w-6 rounded-full object-cover" />

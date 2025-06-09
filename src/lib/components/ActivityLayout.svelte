@@ -7,40 +7,45 @@
 	import BookingButton from '$lib/components/BookingButton.svelte';
 	import * as m from '$lib/paraglide/messages';
 
-	export let activity: Activity;
-
-	export let imagePosition: 'top' | 'center' | 'bottom' = 'center';
+	let {
+		activity,
+		imagePosition = 'center'
+	}: { activity: Activity; imagePosition?: 'top' | 'center' | 'bottom' } = $props();
 
 	function getValue(value: string | (() => string)): string {
 		return typeof value === 'function' ? value() : value;
 	}
 
 	// hämta experience från URL-parametrar om den finns
-	$: selectedExperience = $page.url.searchParams.get('experience');
-	$: currentExperience = selectedExperience
-		? activity.experiences.find(
-				(exp) =>
-					(typeof exp.title === 'function' ? exp.title() : exp.title)
-						.toLowerCase()
-						.replace(/\s+/g, '-') === selectedExperience
-			)
-		: null;
+	let selectedExperience = $derived($page.url.searchParams.get('experience'));
+	let currentExperience = $derived(
+		selectedExperience
+			? activity.experiences.find(
+					(exp) =>
+						(typeof exp.title === 'function' ? exp.title() : exp.title)
+							.toLowerCase()
+							.replace(/\s+/g, '-') === selectedExperience
+				)
+			: null
+	);
 
 	// lägg till en variabel för att hålla koll på aktiv filter
-	let activeFilter: 'all' | 'guided' | 'corporate' | 'educational' = 'all';
+	let activeFilter = $state<'all' | 'guided' | 'corporate' | 'educational'>('all');
 
 	// filtrera upplevelserna baserat på vald filter
-	$: filteredExperiences = activity.experiences.filter((exp) => {
-		if (activeFilter === 'all') return true;
-		return exp.experienceType === activeFilter;
-	});
+	let filteredExperiences = $derived(
+		activity.experiences.filter((exp) => {
+			if (activeFilter === 'all') return true;
+			return exp.experienceType === activeFilter;
+		})
+	);
 </script>
 
 {#if currentExperience}
 	<div class="mx-auto max-w-7xl px-4 py-24">
 		<button
 			class="mb-8 flex items-center text-blue-600 hover:text-blue-800"
-			on:click={() => history.back()}
+			onclick={() => history.back()}
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +99,7 @@
 						class="rounded-full px-4 py-2 transition-colors {activeFilter === 'all'
 							? 'bg-blue-100 text-blue-800 hover:bg-blue-200'
 							: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
-						on:click={() => (activeFilter = 'all')}
+						onclick={() => (activeFilter = 'all')}
 					>
 						{m.mad_inclusive_raven_talk()}
 					</button>
@@ -102,7 +107,7 @@
 						class="rounded-full px-4 py-2 transition-colors {activeFilter === 'guided'
 							? 'bg-blue-100 text-blue-800 hover:bg-blue-200'
 							: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
-						on:click={() => (activeFilter = 'guided')}
+						onclick={() => (activeFilter = 'guided')}
 					>
 						{m.short_stout_rabbit_renew()}
 					</button>
@@ -110,7 +115,7 @@
 						class="rounded-full px-4 py-2 transition-colors {activeFilter === 'corporate'
 							? 'bg-blue-100 text-blue-800 hover:bg-blue-200'
 							: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
-						on:click={() => (activeFilter = 'corporate')}
+						onclick={() => (activeFilter = 'corporate')}
 					>
 						{m.maroon_bad_capybara_read()}
 					</button>
@@ -118,7 +123,7 @@
 						class="rounded-full px-4 py-2 transition-colors {activeFilter === 'educational'
 							? 'bg-blue-100 text-blue-800 hover:bg-blue-200'
 							: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
-						on:click={() => (activeFilter = 'educational')}
+						onclick={() => (activeFilter = 'educational')}
 					>
 						{m.misty_drab_samuel_aid()}
 					</button>

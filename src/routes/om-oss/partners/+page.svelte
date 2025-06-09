@@ -21,6 +21,12 @@
 			description: m.angelholm_description,
 			image: '/images/angelholm.jpg',
 			url: 'https://naringsliv.engelholm.com/'
+		},
+		{
+			name: 'Paloma',
+			description: m.spry_inclusive_cockroach_gasp,
+			image: '/images/paloma-logo-lighter.png',
+			url: 'https://www.paloma.se/'
 		}
 	];
 </script>

@@ -36,12 +36,16 @@
 	const companyInfo = [
 		{
 			icon: 'mdi:map-marker',
-			text: 'Reningsverksvägen 2, Ängelholm',
-			url: 'https://maps.google.com/?q=Reningsverksvägen+2+Ängelholm'
+			text: 'Tullakrok (Hembygdsparken), Ängelholm',
+			url: 'https://maps.google.com/?q=Tullakrok+Hembygdsparken+Ängelholm'
 		},
 		{
 			icon: 'mdi:phone',
-			text: '(+46) 70-325 96 38'
+			text: '070-325 96 38 (paddla)'
+		},
+		{
+			icon: 'mdi:phone',
+			text: '0431-46 15 85 (VD, marknadsföring & ekonomi)'
 		},
 		{
 			icon: 'mdi:email',

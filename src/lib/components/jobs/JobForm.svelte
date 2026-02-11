@@ -253,20 +253,6 @@
 				/>
 			</div>
 
-			<!-- Phone -->
-			<div>
-				<label for="phone" class="block text-sm font-medium text-gray-700">
-					{m.form_phone()}
-				</label>
-				<input
-					type="tel"
-					name="phone"
-					id="phone"
-					required
-					class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-				/>
-			</div>
-
 			<!-- Personal Number -->
 			<div>
 				<label for="personalNumber" class="block text-sm font-medium text-gray-700">

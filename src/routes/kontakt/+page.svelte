@@ -20,14 +20,14 @@
 		{
 			icon: 'mdi:phone',
 			title: m.contact_phone_title(),
-			text: '(+46) 70-325 96 38',
+			text: '070-325 96 38 (paddla), 0431-46 15 85 (VD, marknadsföring & ekonomi)',
 			href: 'tel:+46703259638'
 		},
 		{
 			icon: 'mdi:map-marker',
 			title: m.contact_address_title(),
-			text: 'Reningsverksvägen 2, Ängelholm',
-			href: 'https://www.google.com/maps/place/Reningsverksv%C3%A4gen+2,+262+63+%C3%84ngelholm/@56.2552967,12.8546058,17z/data=!3m1!4b1!4m6!3m5!1s0x46518076f56a182f:0x81ad3fae63d22506!8m2!3d56.2552967!4d12.8571807!16s%2Fg%2F11c1jczmj_?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D'
+			text: 'Tullakrok (Hembygdsparken), Ängelholm',
+			href: 'https://www.google.com/maps/place/Tullakrok+Hembygdsparken+%C3%84ngelholm'
 		}
 	];
 

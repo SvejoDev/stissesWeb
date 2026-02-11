@@ -25,7 +25,6 @@ export const actions = {
             const firstName = formData.get('firstName');
             const lastName = formData.get('lastName');
             const email = formData.get('email')?.toString();
-            const phone = formData.get('phone');
             const personalNumber = formData.get('personalNumber');
             const driversLicense = formData.get('driversLicense');
             const preferredRole = formData.get('preferredRole');
@@ -95,10 +94,6 @@ export const actions = {
                                     <tr>
                                         <td style="padding: 8px 0; color: #6B7280;">E-post:</td>
                                         <td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #166534;">${email}</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 8px 0; color: #6B7280;">Telefon:</td>
-                                        <td style="padding: 8px 0;">${phone}</td>
                                     </tr>
                                     <tr>
                                         <td style="padding: 8px 0; color: #6B7280;">Personnummer:</td>

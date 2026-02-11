@@ -48,6 +48,7 @@
 		{ href: '/fiska', label: m.novel_male_wasp_pinch() },
 		{ href: '/cykla', label: m.spare_civil_jay_hush() },
 		{ href: '/vandra', label: m.wacky_mad_raven_gulp() },
+		{ href: '/teambuilding', label: m.teambuilding_nav_label() },
 		{ href: '/presentkort', label: m.round_simple_skunk_hunt() }
 	];
 
@@ -76,8 +77,8 @@
 				<a href="/" class="flex-shrink-0">
 					<img class="h-8 w-auto" src="/images/logo.png" alt="Company Logo" />
 				</a>
-				<div class="hidden md:block">
-					<div class="ml-10 flex items-baseline space-x-4">
+			<div class="hidden xl:block">
+				<div class="ml-10 flex items-baseline space-x-4">
 						{#each navItems as item}
 							<a
 								href={item.href}
@@ -169,8 +170,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="hidden md:block">
-				<div class="ml-4 flex items-center md:ml-6">
+		<div class="hidden xl:block">
+			<div class="ml-4 flex items-center xl:ml-6">
 					{#each languages as lang}
 						<button
 							onclick={() => switchLanguage(lang.code as AvailableLanguageTag)}
@@ -181,7 +182,7 @@
 					{/each}
 				</div>
 			</div>
-			<div class="-mr-2 flex md:hidden">
+			<div class="-mr-2 flex xl:hidden">
 				<button
 					onclick={() => (isMobileMenuOpen = !isMobileMenuOpen)}
 					type="button"
@@ -208,7 +209,7 @@
 	</div>
 
 	{#if isMobileMenuOpen}
-		<div class="md:hidden">
+		<div class="xl:hidden">
 			<div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
 				{#each navItems as item}
 					<a

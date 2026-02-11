@@ -41,6 +41,9 @@
 						<td class="whitespace-nowrap px-6 py-4">{getValue(row.paddleTime)}</td>
 					{/if}
 					<td class="whitespace-nowrap px-6 py-4 font-medium">{row.price} kr</td>
+					{#if row.reducedPrice !== undefined}
+						<td class="whitespace-nowrap px-6 py-4 font-medium">{row.reducedPrice} kr</td>
+					{/if}
 				</tr>
 			{/each}
 		</tbody>

@@ -20,12 +20,21 @@
 			<h2 class="mb-4 text-xl font-semibold">{m.smart_tough_beetle_bump()}</h2>
 			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 				{#each experience.extras.food as option}
-					<div class="rounded-lg bg-white p-4 shadow">
-						<div class="mb-2 flex items-start justify-between">
-							<h3 class="font-semibold">{getValue(option.title)}</h3>
-							<Badge variant="secondary">{option.price} {m.spare_grassy_bird_lend()}</Badge>
+					<div class="overflow-hidden rounded-lg bg-white shadow">
+						{#if option.image}
+							<img
+								src={option.image}
+								alt={getValue(option.title)}
+								class="h-40 w-full object-cover"
+							/>
+						{/if}
+						<div class="p-4">
+							<div class="mb-2 flex items-start justify-between">
+								<h3 class="font-semibold">{getValue(option.title)}</h3>
+								<Badge variant="secondary">{option.price} {m.spare_grassy_bird_lend()}</Badge>
+							</div>
+							<p class="text-sm text-gray-600">{getValue(option.description)}</p>
 						</div>
-						<p class="text-sm text-gray-600">{getValue(option.description)}</p>
 					</div>
 				{/each}
 			</div>

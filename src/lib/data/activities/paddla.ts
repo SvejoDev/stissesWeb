@@ -69,26 +69,30 @@ export const activities: { paddla: Activity } = {
                         () => m.table_header_start(),
                         () => m.table_header_goal(),
                         () => m.table_header_paddle_time(),
-                        () => m.table_header_price()
+                        () => m.table_header_price_regular(),
+                        () => m.table_header_price_reduced()
                     ],
                     rows: [
                         {
                             start: () => m.common_location_gasahalsen(),
                             goal: "Stisses",
                             duration: '2 h',
-                            price: 590
+                            price: 690,
+                            reducedPrice: 590
                         },
                         {
                             start: () => m.common_location_hoja(),
                             goal: "Stisses",
                             duration: '3,5 h',
-                            price: 613
+                            price: 690,
+                            reducedPrice: 590
                         },
                         {
                             start: () => m.common_location_ugglarp(),
                             goal: "Stisses",
                             duration: '5 h',
-                            price: 738
+                            price: 790,
+                            reducedPrice: 690
                         }
                     ]
                 },
@@ -273,17 +277,20 @@ export const activities: { paddla: Activity } = {
                         {
                             title: () => m.extra_food_coffee(),
                             description: () => m.extra_food_coffee_description(),
-                            price: 69
+                            price: 69,
+                            image: '/images/mat.jpg'
                         },
                         {
                             title: () => m.extra_food_soup(),
                             description: () => m.extra_food_soup_description(),
-                            price: 99
+                            price: 99,
+                            image: '/images/mat.jpg'
                         },
                         {
                             title: () => m.extra_food_sausage(),
                             description: () => m.extra_food_sausage_description(),
-                            price: 99
+                            price: 99,
+                            image: '/images/mat.jpg'
                         }
                     ],
                     teambuilding: {

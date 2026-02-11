@@ -63,12 +63,14 @@ export interface PriceRow {
     paddleTime?: string | (() => string);
     nights?: number;
     price: number;
+    reducedPrice?: number;
 }
 
 export interface FoodOption {
     title: string | (() => string);
     description: string | (() => string);
     price: number;
+    image?: string;
 }
 
 export interface TeamBuildingVideo {

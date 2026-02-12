@@ -289,7 +289,7 @@ export const activities: { paddla: Activity } = {
                         {
                             title: () => m.extra_food_sausage(),
                             description: () => m.extra_food_sausage_description(),
-                            price: 99,
+                            price: 119,
                             image: '/images/mat.jpg'
                         }
                     ],

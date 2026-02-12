@@ -28,7 +28,7 @@
 		if (mapType === 'short') {
 			return '/maps/kartaAngelholm.jpg';
 		}
-		return mapLanguage === 'sv' ? '/maps/angeltoklipp_sv.png' : '/maps/angeltoklipp_en.png';
+		return mapLanguage === 'sv' ? '/maps/angeltoklipp_sv.jpg' : '/maps/angeltoklipp_en.jpg';
 	}
 </script>
 

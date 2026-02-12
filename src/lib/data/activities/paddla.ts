@@ -278,18 +278,18 @@ export const activities: { paddla: Activity } = {
                             title: () => m.extra_food_coffee(),
                             description: () => m.extra_food_coffee_description(),
                             price: 69,
-                            image: '/images/mat.jpg'
+                            image: '/images/fika.jpg'
                         },
                         {
                             title: () => m.extra_food_soup(),
                             description: () => m.extra_food_soup_description(),
                             price: 99,
-                            image: '/images/mat.jpg'
+                            image: '/images/soppa.png'
                         },
                         {
                             title: () => m.extra_food_sausage(),
                             description: () => m.extra_food_sausage_description(),
-                            price: 99,
+                            price: 119,
                             image: '/images/mat.jpg'
                         }
                     ],

@@ -63,8 +63,8 @@
 		</button>
 
 		<ExperienceDetails experience={currentExperience} />
-		{#if currentExperience.bookingLink}
-			<BookingButton bookingLink={currentExperience.bookingLink} sticky={true} />
+		{#if currentExperience.deniraWidgetId}
+			<BookingButton widgetId={currentExperience.deniraWidgetId} />
 		{/if}
 	</div>
 {:else}

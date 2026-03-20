@@ -42,7 +42,7 @@ export const activities: { paddla: Activity } = {
                     children: 3
                 },
                 bookingRules: bookingRulesPrivate,
-                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=6932",
+                deniraWidgetId: "qd76n0skbscsqtnrprarjdbpjd82g9vx",
                 longDescription: () => m.experience_calm_long_description()
             },
             {
@@ -97,7 +97,7 @@ export const activities: { paddla: Activity } = {
                     ]
                 },
                 bookingRules: bookingRulesPrivate,
-                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=7297&products=7294&products=7280",
+                deniraWidgetId: "qd7fs9v9k8pvzrem904h0cy1g182h796",
                 longDescription: () => m.experience_adventure_long_description()
             },
             {
@@ -159,7 +159,7 @@ export const activities: { paddla: Activity } = {
                     ]
                 },
                 bookingRules: bookingRulesPrivate,
-                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=7287&products=9280&products=9279",
+                deniraWidgetId: "qd71vpr36wz9b095sxs0ar0p5183876c",
                 longDescription: () => m.experience_challenging_long_description()
             },
             /*{
@@ -311,7 +311,7 @@ export const activities: { paddla: Activity } = {
                     }
                 },
                 bookingRules: bookingRulesCorporate,
-                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=7288",
+                deniraWidgetId: "qd7576grgwm6szhy47jhev2b0n839gjk",
                 longDescription: () => m.experience_corporate_long_description()
             },
             {
@@ -366,7 +366,7 @@ export const activities: { paddla: Activity } = {
                     perInstructor: 8
                 },
                 bookingRules: bookingRulesSchool,
-                bookingLink: "https://app.bookspot.io/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&products=7298",
+                deniraWidgetId: "qd7ewhhjj9jf49kcnm0rgkg4d5838qgp",
                 longDescription: () => m.experience_school_long_description()
             }
         ]

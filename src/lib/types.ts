@@ -48,7 +48,7 @@ export interface Experience {
     };
     longDescription: string | (() => string);
     bookingRules: string[] | (() => string)[] | (() => string[]);
-    bookingLink?: string;
+    deniraWidgetId?: string;
 };
 
 export interface PriceTable {

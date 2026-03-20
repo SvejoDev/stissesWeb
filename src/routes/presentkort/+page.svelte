@@ -39,8 +39,6 @@
 		}
 	];
 
-	const checkoutUrl =
-		'https://app.outventures.se/widget/v2/dialog/new-order?key=e288265c8bfe259e7865c7fabcf1e99ff0c75de6f7a548cb667e7ed453381ac6&productTypes=products,vouchers&listView=products&categories=884';
 </script>
 
 <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white py-24">
@@ -66,15 +64,10 @@
 			{/each}
 		</div>
 
-		<div class="md:mt-12 md:text-center">
-			<a
-				href={checkoutUrl}
-				class="fixed bottom-4 right-4 z-50 rounded-lg bg-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-blue-700 md:static md:inline-block md:px-8 md:py-4 md:shadow-none"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				{m.low_tidy_shell_dust()}
-			</a>
+		<div class="mt-12">
+			<div class="mx-auto w-full max-w-5xl">
+				<div data-denira-widget="qd71esza2a1sgrm8w6s7qp7d7d8386g4"></div>
+			</div>
 		</div>
 	</div>
 </div>

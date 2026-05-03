@@ -49,7 +49,8 @@
 		{ href: '/cykla', label: m.spare_civil_jay_hush() },
 		{ href: '/vandra', label: m.wacky_mad_raven_gulp() },
 		{ href: '/teambuilding', label: m.teambuilding_nav_label() },
-		{ href: '/presentkort', label: m.round_simple_skunk_hunt() }
+		{ href: '/presentkort', label: m.round_simple_skunk_hunt() },
+		{ href: '/boende', label: m.accommodations_nav_label() }
 	];
 
 	const kartorItems = [{ href: '/kartor', label: m.polite_legal_panther_fold() }];
@@ -71,18 +72,18 @@
 </script>
 
 <nav class="fixed z-50 w-full bg-green-50 shadow-md">
-	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+	<div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
 		<div class="flex h-16 items-center justify-between">
 			<div class="flex items-center">
 				<a href="/" class="flex-shrink-0">
 					<img class="h-8 w-auto" src="/images/logo.png" alt="Company Logo" />
 				</a>
 			<div class="hidden xl:block">
-				<div class="ml-10 flex items-baseline space-x-4">
+				<div class="ml-8 flex items-baseline space-x-2">
 						{#each navItems as item}
 							<a
 								href={item.href}
-								class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900"
+								class="whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900"
 							>
 								{item.label}
 							</a>
@@ -93,7 +94,7 @@
 									e.stopPropagation();
 									isKartorOpen = !isKartorOpen;
 								}}
-								class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900 focus:outline-none"
+								class="whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900 focus:outline-none"
 							>
 								{m.maps_section_title()}
 								<svg
@@ -130,7 +131,7 @@
 									e.stopPropagation();
 									isAboutUsOpen = !isAboutUsOpen;
 								}}
-								class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900 focus:outline-none"
+								class="whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900 focus:outline-none"
 							>
 								{m.sleek_day_martin_reside()}
 								<svg
@@ -163,7 +164,7 @@
 						</div>
 						<a
 							href="/kontakt"
-							class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900"
+							class="whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition duration-150 ease-in-out hover:bg-green-100 hover:text-green-900"
 						>
 							{m.ago_careful_alpaca_intend()}
 						</a>

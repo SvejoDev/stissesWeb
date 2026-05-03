@@ -124,7 +124,7 @@ export const activities: { paddla: Activity } = {
                         () => m.table_header_start(),
                         () => m.table_header_goal(),
                         () => m.table_header_nights(),
-                        () => m.table_header_paddle_time(),
+                        () => m.table_header_paddle_time_per_day(),
                         () => m.table_header_price()
                     ],
                     rows: [
@@ -342,22 +342,28 @@ export const activities: { paddla: Activity } = {
                     ],
                     rows: [
                         {
-                            start: "Stisses",
-                            goal: "Stisses",
+                            start: () => m.common_location_stisses(),
+                            goal: () => m.common_location_stisses(),
                             duration: '1-4 h',
                             price: 160
                         },
                         {
                             start: () => m.common_location_hoja(),
-                            goal: "Stisses",
+                            goal: () => m.common_location_stisses(),
                             duration: '3,5 h',
                             price: 240
                         },
                         {
                             start: () => m.common_location_ugglarp(),
-                            goal: "Stisses",
+                            goal: () => m.common_location_stisses(),
                             duration: '5 h',
                             price: 290
+                        },
+                        {
+                            start: () => m.common_location_tranarpsbron(),
+                            goal: () => m.common_location_stisses(),
+                            duration: () => m.common_duration_one_overnight(),
+                            price: 590
                         }
                     ]
                 },

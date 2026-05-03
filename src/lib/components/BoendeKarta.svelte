@@ -13,6 +13,9 @@
 	let leaflet: typeof import('leaflet') | null = null;
 	const markerById: Record<string, LeafletMarker> = {};
 	let stissesMarker: LeafletMarker | null = null;
+	// Spårar pågående popup-timeout så att vi kan rensa den i onDestroy och
+	// undvika att openPopup() anropas på en marker vars karta redan tagits bort.
+	let pendingPopupTimeout: ReturnType<typeof setTimeout> | null = null;
 
 	let hoveredId: string | null = $state(null);
 	let activeId: string | null = $state(null);
@@ -26,18 +29,37 @@
 			.replace(/'/g, '&#039;');
 	}
 
+	/**
+	 * Returnerar en escape:ad URL endast om dess scheme är http(s).
+	 * Skyddar mot XSS via `javascript:`/`data:`-URLer i href-attribut.
+	 * Faller tillbaka till '#' om URL:en är ogiltig eller har förbjudet scheme.
+	 */
+	function safeHttpUrl(url: string): string {
+		try {
+			const parsed = new URL(url);
+			if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+				return escapeHtml(url);
+			}
+		} catch {
+			// ogiltig URL — falla genom till '#'
+		}
+		return '#';
+	}
+
 	function buildPopupHtml(acc: (typeof accommodations)[number]): string {
 		const safeName = escapeHtml(acc.name);
 		const safeDesc = escapeHtml(acc.description());
 		const safeAlt = escapeHtml(acc.imageAlt);
+		const safeImage = escapeHtml(acc.image);
+		const safeWebsite = safeHttpUrl(acc.website);
 		const visit = escapeHtml(m.accommodations_visit_website());
 		return `
 			<div class="boende-popup">
-				<img src="${acc.image}" alt="${safeAlt}" loading="lazy" />
+				<img src="${safeImage}" alt="${safeAlt}" loading="lazy" />
 				<div class="boende-popup-body">
 					<h3>${safeName}</h3>
 					<p>${safeDesc}</p>
-					<a href="${acc.website}" target="_blank" rel="noopener noreferrer">
+					<a href="${safeWebsite}" target="_blank" rel="noopener noreferrer">
 						${visit}
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 							<path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0 0 1.5H12.19l-6.97 6.97a.75.75 0 1 0 1.06 1.06L13.25 8.06V16a.75.75 0 0 0 1.5 0V5.75a.75.75 0 0 0-.75-.75H4.25Z" clip-rule="evenodd" />
@@ -98,11 +120,11 @@
 		// Stisses-markör med rik popup (bild + beskrivning + länk)
 		const stissesPopupHtml = `
 			<div class="boende-popup boende-popup--stisses">
-				<img src="${STISSES_LOCATION.image}" alt="${escapeHtml(STISSES_LOCATION.imageAlt)}" loading="lazy" />
+				<img src="${escapeHtml(STISSES_LOCATION.image)}" alt="${escapeHtml(STISSES_LOCATION.imageAlt)}" loading="lazy" />
 				<div class="boende-popup-body">
 					<h3>${escapeHtml(STISSES_LOCATION.name)}</h3>
 					<p>${escapeHtml(STISSES_LOCATION.description())}</p>
-					<a href="${STISSES_LOCATION.website}" target="_blank" rel="noopener noreferrer">
+					<a href="${safeHttpUrl(STISSES_LOCATION.website)}" target="_blank" rel="noopener noreferrer">
 						${escapeHtml(m.accommodations_visit_website())}
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 							<path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 0 0 0 1.5H12.19l-6.97 6.97a.75.75 0 1 0 1.06 1.06L13.25 8.06V16a.75.75 0 0 0 1.5 0V5.75a.75.75 0 0 0-.75-.75H4.25Z" clip-rule="evenodd" />
@@ -176,6 +198,13 @@
 	});
 
 	onDestroy(() => {
+		// Rensa eventuell pågående popup-timeout — utan detta skulle callbacken
+		// kunna anropa openPopup() på en marker vars karta redan är borta,
+		// vilket kastar ett ohanterat Leaflet-fel.
+		if (pendingPopupTimeout !== null) {
+			clearTimeout(pendingPopupTimeout);
+			pendingPopupTimeout = null;
+		}
 		if (map) {
 			map.remove();
 			map = null;
@@ -184,6 +213,12 @@
 
 	function focusLocation(coordinates: [number, number], marker: LeafletMarker | null) {
 		if (!map || !leaflet || !marker) return;
+
+		// Avbryt eventuell tidigare väntande popup-öppning innan vi schemalägger en ny.
+		if (pendingPopupTimeout !== null) {
+			clearTimeout(pendingPopupTimeout);
+			pendingPopupTimeout = null;
+		}
 
 		const targetZoom = 14;
 		// Förskjut kartans centrum uppåt i pixel-rummet så markören hamnar i nedre
@@ -195,7 +230,12 @@
 		const offsetLatLng = map.unproject(offsetPoint, targetZoom);
 
 		map.flyTo(offsetLatLng, targetZoom, { duration: 0.8 });
-		setTimeout(() => marker.openPopup(), 800);
+		pendingPopupTimeout = setTimeout(() => {
+			pendingPopupTimeout = null;
+			// Komponenten kan ha avmonterats medan flyTo pågick.
+			if (!map) return;
+			marker.openPopup();
+		}, 800);
 	}
 
 	function focusAccommodation(id: string) {

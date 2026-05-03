@@ -59,7 +59,7 @@ export interface PriceTable {
 export interface PriceRow {
     start?: string | (() => string);
     goal?: string | (() => string);
-    duration?: string;
+    duration?: string | (() => string);
     paddleTime?: string | (() => string);
     nights?: number;
     price: number;

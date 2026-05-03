@@ -11,22 +11,28 @@
 
 	const partners = [
 		{
-			name: 'Kullamust',
-			description: m.kullamust_description,
-			image: '/images/kullamust.jpg',
-			url: 'https://kullamust.se/'
-		},
-		{
 			name: 'Ängelholms Näringsliv',
 			description: m.angelholm_description,
 			image: '/images/angelholm.jpg',
-			url: 'https://naringsliv.engelholm.com/'
+			url: 'https://naringsliv.engelholm.com/',
+			imageClass: 'object-cover',
+			imageWrapperClass: ''
 		},
 		{
 			name: 'Paloma',
 			description: m.spry_inclusive_cockroach_gasp,
 			image: '/images/paloma-logo-lighter.png',
-			url: 'https://www.paloma.se/'
+			url: 'https://www.paloma.se/',
+			imageClass: 'object-cover',
+			imageWrapperClass: ''
+		},
+		{
+			name: 'Bjäre Kraft',
+			description: m.bjare_kraft_description,
+			image: '/images/bjare-kraft.svg',
+			url: 'https://www.bjarekraft.se/',
+			imageClass: 'object-contain p-8',
+			imageWrapperClass: 'bg-white'
 		}
 	];
 </script>
@@ -51,7 +57,9 @@
 						<div
 							class="overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:-translate-y-1"
 						>
-							<img src={partner.image} alt={partner.name} class="h-64 w-full object-cover" />
+							<div class={`flex h-64 w-full items-center justify-center ${partner.imageWrapperClass}`}>
+								<img src={partner.image} alt={partner.name} class={`h-full w-full ${partner.imageClass}`} />
+							</div>
 							<div class="p-6">
 								<h2 class="mb-4 text-2xl font-bold text-gray-900">
 									{partner.name}

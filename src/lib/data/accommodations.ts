@@ -64,7 +64,7 @@ export const accommodations: Accommodation[] = [
 		id: 'margretetorp',
 		name: 'Margretetorps Gästgifvaregård',
 		description: () => m.accommodation_margretetorp_description(),
-		coordinates: [56.3358598, 12.8923826],
+		coordinates: [56.3357540755345, 12.8890657424927],
 		website: 'https://www.margretetorp.se/',
 		image: '/images/boende/Margretetorp.webp',
 		imageAlt: 'Margretetorps Gästgifvaregård vid Hallandsåsen'

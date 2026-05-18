@@ -33,6 +33,14 @@
 			url: 'https://www.bjarekraft.se/',
 			imageClass: 'object-contain p-8',
 			imageWrapperClass: 'bg-white'
+		},
+		{
+			name: 'Råbocka Camping',
+			description: m.rabocka_camping_description,
+			image: '/images/rabocka-camping-logo.png',
+			url: 'https://rabockacamping.se/',
+			imageClass: 'object-contain p-12',
+			imageWrapperClass: 'bg-white'
 		}
 	];
 </script>

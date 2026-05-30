@@ -360,10 +360,16 @@ export const activities: { paddla: Activity } = {
                             price: 290
                         },
                         {
+                            start: () => m.common_location_ugglarp(),
+                            goal: () => m.common_location_stisses(),
+                            duration: () => m.common_duration_one_overnight(),
+                            price: 792
+                        },
+                        {
                             start: () => m.common_location_tranarpsbron(),
                             goal: () => m.common_location_stisses(),
                             duration: () => m.common_duration_one_overnight(),
-                            price: 590
+                            price: 792
                         }
                     ]
                 },
